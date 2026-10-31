@@ -1,0 +1,2368 @@
+{
+ "meta": {
+  "page": "https://maps.tristanhotham.com/straight-borders/",
+  "repo": "https://github.com/Tristan-Hotham/straight-borders",
+  "ne_version": "5.2.0-pre",
+  "settings": {
+   "tol": 1.0,
+   "lmin": 50.0,
+   "river": 3.0,
+   "wmin": 15.0,
+   "mtn_low": 300.0,
+   "mtn_rel": 300.0,
+   "mtn_r": 2,
+   "mmin": 20.0
+  }
+ },
+ "world": {
+  "km": 233534,
+  "n_borders": 332,
+  "n_countries": 170,
+  "straight": 45232,
+  "water": 48871,
+  "mountain": 57794,
+  "other": 81637,
+  "straight_pct": 19.4,
+  "water_pct": 20.9,
+  "mountain_pct": 24.7,
+  "other_pct": 35.0,
+  "intl_only_straight_pct": 19.1,
+  "non_intl_km": 10845,
+  "non_intl_pct": 4.6
+ },
+ "straight": {
+  "n_segments": 312,
+  "km": 45232,
+  "line_km": 28857,
+  "parallel_km": 9318,
+  "meridian_km": 7058,
+  "line_pct_of_straight": 63.8,
+  "parallel_pct_of_straight": 20.6,
+  "meridian_pct_of_straight": 15.6,
+  "astro_pct_of_world": 7.0
+ },
+ "continents": [
+  {
+   "name": "Oceania",
+   "km": 749,
+   "straight": 658,
+   "water": 91,
+   "mountain": 0,
+   "other": 0,
+   "straight_pct": 87.9,
+   "water_pct": 12.1,
+   "mountain_pct": 0.0,
+   "other_pct": 0.0,
+   "share_of_world_straight": 1.5,
+   "astro_pct": 87.9,
+   "n_borders": 1,
+   "n_mostly_straight": 1,
+   "mostly_straight_pct": 100.0,
+   "median_border_straight_pct": 87.9
+  },
+  {
+   "name": "North America",
+   "km": 14965,
+   "straight": 6867,
+   "water": 5035,
+   "mountain": 2206,
+   "other": 857,
+   "straight_pct": 45.9,
+   "water_pct": 33.6,
+   "mountain_pct": 14.7,
+   "other_pct": 5.7,
+   "share_of_world_straight": 15.2,
+   "astro_pct": 27.4,
+   "n_borders": 14,
+   "n_mostly_straight": 3,
+   "mostly_straight_pct": 21.4,
+   "median_border_straight_pct": 0.0
+  },
+  {
+   "name": "Africa",
+   "km": 80457,
+   "straight": 24332,
+   "water": 16514,
+   "mountain": 6865,
+   "other": 32746,
+   "straight_pct": 30.2,
+   "water_pct": 20.5,
+   "mountain_pct": 8.5,
+   "other_pct": 40.7,
+   "share_of_world_straight": 53.8,
+   "astro_pct": 12.3,
+   "n_borders": 110,
+   "n_mostly_straight": 28,
+   "mostly_straight_pct": 25.5,
+   "median_border_straight_pct": 13.9
+  },
+  {
+   "name": "South America",
+   "km": 29934,
+   "straight": 3939,
+   "water": 9372,
+   "mountain": 8197,
+   "other": 8426,
+   "straight_pct": 13.2,
+   "water_pct": 31.3,
+   "mountain_pct": 27.4,
+   "other_pct": 28.1,
+   "share_of_world_straight": 8.7,
+   "astro_pct": 3.2,
+   "n_borders": 25,
+   "n_mostly_straight": 1,
+   "mostly_straight_pct": 4.0,
+   "median_border_straight_pct": 0.0
+  },
+  {
+   "name": "Asia",
+   "km": 77037,
+   "straight": 8989,
+   "water": 10351,
+   "mountain": 32163,
+   "other": 25535,
+   "straight_pct": 11.7,
+   "water_pct": 13.4,
+   "mountain_pct": 41.7,
+   "other_pct": 33.1,
+   "share_of_world_straight": 19.9,
+   "astro_pct": 0.9,
+   "n_borders": 93,
+   "n_mostly_straight": 13,
+   "mostly_straight_pct": 14.0,
+   "median_border_straight_pct": 0.0
+  },
+  {
+   "name": "Europe",
+   "km": 30392,
+   "straight": 448,
+   "water": 7508,
+   "mountain": 8363,
+   "other": 14073,
+   "straight_pct": 1.5,
+   "water_pct": 24.7,
+   "mountain_pct": 27.5,
+   "other_pct": 46.3,
+   "share_of_world_straight": 1.0,
+   "astro_pct": 0.0,
+   "n_borders": 89,
+   "n_mostly_straight": 1,
+   "mostly_straight_pct": 1.1,
+   "median_border_straight_pct": 0.0
+  }
+ ],
+ "borders": {
+  "top_straight_km": [
+   {
+    "name": "Canada and United States",
+    "a": "CAN",
+    "b": "USA",
+    "km": 4956,
+    "pct": 59.3,
+    "total": 8352
+   },
+   {
+    "name": "Mali and Mauritania",
+    "a": "MLI",
+    "b": "MRT",
+    "km": 1629,
+    "pct": 75.1,
+    "total": 2169
+   },
+   {
+    "name": "Kazakhstan and Uzbekistan",
+    "a": "KAZ",
+    "b": "UZB",
+    "km": 1419,
+    "pct": 65.0,
+    "total": 2183
+   },
+   {
+    "name": "Mauritania and Western Sahara",
+    "a": "MRT",
+    "b": "SAH",
+    "km": 1407,
+    "pct": 91.5,
+    "total": 1538
+   },
+   {
+    "name": "Egypt and Sudan",
+    "a": "EGY",
+    "b": "SDN",
+    "km": 1211,
+    "pct": 95.2,
+    "total": 1273
+   },
+   {
+    "name": "Libya and Chad",
+    "a": "LBY",
+    "b": "TCD",
+    "km": 1051,
+    "pct": 100.0,
+    "total": 1051
+   },
+   {
+    "name": "Mexico and United States",
+    "a": "MEX",
+    "b": "USA",
+    "km": 1040,
+    "pct": 39.4,
+    "total": 2641
+   },
+   {
+    "name": "China and Mongolia",
+    "a": "CHN",
+    "b": "MNG",
+    "km": 1001,
+    "pct": 22.9,
+    "total": 4378
+   },
+   {
+    "name": "Botswana and Namibia",
+    "a": "BWA",
+    "b": "NAM",
+    "km": 977,
+    "pct": 71.6,
+    "total": 1364
+   },
+   {
+    "name": "Algeria and Niger",
+    "a": "DZA",
+    "b": "NER",
+    "km": 952,
+    "pct": 100.0,
+    "total": 952
+   },
+   {
+    "name": "Niger and Chad",
+    "a": "NER",
+    "b": "TCD",
+    "km": 916,
+    "pct": 78.6,
+    "total": 1165
+   },
+   {
+    "name": "Algeria and Mali",
+    "a": "DZA",
+    "b": "MLI",
+    "km": 846,
+    "pct": 66.8,
+    "total": 1266
+   },
+   {
+    "name": "Egypt and Libya",
+    "a": "EGY",
+    "b": "LBY",
+    "km": 802,
+    "pct": 73.1,
+    "total": 1098
+   },
+   {
+    "name": "Iraq and Saudi Arabia",
+    "a": "IRQ",
+    "b": "SAU",
+    "km": 795,
+    "pct": 97.9,
+    "total": 813
+   },
+   {
+    "name": "Ethiopia and Somalia",
+    "a": "ETH",
+    "b": "SOM",
+    "km": 745,
+    "pct": 86.9,
+    "total": 858
+   }
+  ],
+  "top_water_km": [
+   {
+    "name": "China and Russia",
+    "a": "CHN",
+    "b": "RUS",
+    "km": 2857,
+    "pct": 80.6,
+    "total": 3544
+   },
+   {
+    "name": "Canada and United States",
+    "a": "CAN",
+    "b": "USA",
+    "km": 2163,
+    "pct": 25.9,
+    "total": 8352
+   },
+   {
+    "name": "Argentina and Paraguay",
+    "a": "ARG",
+    "b": "PRY",
+    "km": 1645,
+    "pct": 100.0,
+    "total": 1645
+   },
+   {
+    "name": "Mexico and United States",
+    "a": "MEX",
+    "b": "USA",
+    "km": 1553,
+    "pct": 58.8,
+    "total": 2641
+   },
+   {
+    "name": "Central African Republic and DR Congo",
+    "a": "CAF",
+    "b": "COD",
+    "km": 1446,
+    "pct": 99.5,
+    "total": 1453
+   },
+   {
+    "name": "Bolivia and Brazil",
+    "a": "BOL",
+    "b": "BRA",
+    "km": 1350,
+    "pct": 50.7,
+    "total": 2664
+   },
+   {
+    "name": "Botswana and South Africa",
+    "a": "BWA",
+    "b": "ZAF",
+    "km": 1206,
+    "pct": 74.6,
+    "total": 1615
+   },
+   {
+    "name": "DR Congo and Republic of the Congo",
+    "a": "COD",
+    "b": "COG",
+    "km": 1115,
+    "pct": 75.9,
+    "total": 1468
+   },
+   {
+    "name": "Colombia and Peru",
+    "a": "COL",
+    "b": "PER",
+    "km": 1062,
+    "pct": 87.1,
+    "total": 1220
+   },
+   {
+    "name": "Afghanistan and Tajikistan",
+    "a": "AFG",
+    "b": "TJK",
+    "km": 993,
+    "pct": 84.9,
+    "total": 1170
+   },
+   {
+    "name": "Angola and DR Congo",
+    "a": "AGO",
+    "b": "COD",
+    "km": 978,
+    "pct": 40.6,
+    "total": 2410
+   },
+   {
+    "name": "China and North Korea",
+    "a": "CHN",
+    "b": "PRK",
+    "km": 960,
+    "pct": 95.6,
+    "total": 1005
+   },
+   {
+    "name": "Laos and Thailand",
+    "a": "LAO",
+    "b": "THA",
+    "km": 924,
+    "pct": 57.2,
+    "total": 1616
+   },
+   {
+    "name": "Colombia and Venezuela",
+    "a": "COL",
+    "b": "VEN",
+    "km": 779,
+    "pct": 36.9,
+    "total": 2111
+   },
+   {
+    "name": "Brazil and Peru",
+    "a": "BRA",
+    "b": "PER",
+    "km": 761,
+    "pct": 42.3,
+    "total": 1800
+   }
+  ],
+  "top_mountain_km": [
+   {
+    "name": "Argentina and Chile",
+    "a": "ARG",
+    "b": "CHL",
+    "km": 3881,
+    "pct": 73.8,
+    "total": 5257
+   },
+   {
+    "name": "China and India",
+    "a": "CHN",
+    "b": "IND",
+    "km": 2246,
+    "pct": 100.0,
+    "total": 2246
+   },
+   {
+    "name": "Afghanistan and Pakistan",
+    "a": "AFG",
+    "b": "PAK",
+    "km": 1649,
+    "pct": 73.4,
+    "total": 2245
+   },
+   {
+    "name": "China and Myanmar",
+    "a": "CHN",
+    "b": "MMR",
+    "km": 1484,
+    "pct": 87.3,
+    "total": 1699
+   },
+   {
+    "name": "China and Kazakhstan",
+    "a": "CHN",
+    "b": "KAZ",
+    "km": 1310,
+    "pct": 87.1,
+    "total": 1503
+   },
+   {
+    "name": "Mongolia and Russia",
+    "a": "MNG",
+    "b": "RUS",
+    "km": 1307,
+    "pct": 44.9,
+    "total": 2913
+   },
+   {
+    "name": "Laos and Vietnam",
+    "a": "LAO",
+    "b": "VNM",
+    "km": 1302,
+    "pct": 74.4,
+    "total": 1750
+   },
+   {
+    "name": "China and Mongolia",
+    "a": "CHN",
+    "b": "MNG",
+    "km": 1262,
+    "pct": 28.8,
+    "total": 4378
+   },
+   {
+    "name": "China and Nepal",
+    "a": "CHN",
+    "b": "NPL",
+    "km": 1112,
+    "pct": 100.0,
+    "total": 1112
+   },
+   {
+    "name": "India and Myanmar",
+    "a": "IND",
+    "b": "MMR",
+    "km": 1090,
+    "pct": 85.9,
+    "total": 1268
+   },
+   {
+    "name": "Tajikistan and Uzbekistan",
+    "a": "TJK",
+    "b": "UZB",
+    "km": 1048,
+    "pct": 93.5,
+    "total": 1120
+   },
+   {
+    "name": "Kyrgyzstan and Uzbekistan",
+    "a": "KGZ",
+    "b": "UZB",
+    "km": 1040,
+    "pct": 99.1,
+    "total": 1049
+   },
+   {
+    "name": "Canada and United States",
+    "a": "CAN",
+    "b": "USA",
+    "km": 1026,
+    "pct": 12.3,
+    "total": 8352
+   },
+   {
+    "name": "Kazakhstan and Kyrgyzstan",
+    "a": "KAZ",
+    "b": "KGZ",
+    "km": 1017,
+    "pct": 100.0,
+    "total": 1017
+   },
+   {
+    "name": "Brazil and Venezuela",
+    "a": "BRA",
+    "b": "VEN",
+    "km": 896,
+    "pct": 56.0,
+    "total": 1602
+   }
+  ],
+  "n_mostly_straight": 47,
+  "n_all_straight": 12,
+  "n_any_straight": 121,
+  "longest": [
+   {
+    "name": "Canada and United States",
+    "km": 8352
+   },
+   {
+    "name": "Kazakhstan and Russia",
+    "km": 6658
+   },
+   {
+    "name": "Argentina and Chile",
+    "km": 5257
+   },
+   {
+    "name": "China and Mongolia",
+    "km": 4378
+   },
+   {
+    "name": "China and Russia",
+    "km": 3544
+   }
+  ],
+  "mostly_straight_pct": 14.2
+ },
+ "countries": {
+  "n": 170,
+  "n_1000": 119,
+  "top_straight_pct": [
+   {
+    "name": "Somalia",
+    "iso": "SOM",
+    "pct": 93.4,
+    "km": 1934
+   },
+   {
+    "name": "Egypt",
+    "iso": "EGY",
+    "pct": 80.7,
+    "km": 2587
+   },
+   {
+    "name": "Somaliland",
+    "iso": "SOL",
+    "pct": 79.7,
+    "km": 1216
+   },
+   {
+    "name": "Saudi Arabia",
+    "iso": "SAU",
+    "pct": 79.3,
+    "km": 4151
+   },
+   {
+    "name": "Mauritania",
+    "iso": "MRT",
+    "pct": 71.1,
+    "km": 4889
+   },
+   {
+    "name": "Libya",
+    "iso": "LBY",
+    "pct": 70.9,
+    "km": 4291
+   },
+   {
+    "name": "Yemen",
+    "iso": "YEM",
+    "pct": 62.4,
+    "km": 1513
+   },
+   {
+    "name": "Oman",
+    "iso": "OMN",
+    "pct": 62.0,
+    "km": 1514
+   },
+   {
+    "name": "Western Sahara",
+    "iso": "SAH",
+    "pct": 60.7,
+    "km": 2912
+   },
+   {
+    "name": "Canada",
+    "iso": "CAN",
+    "pct": 59.3,
+    "km": 8352
+   },
+   {
+    "name": "Namibia",
+    "iso": "NAM",
+    "pct": 55.6,
+    "km": 3861
+   },
+   {
+    "name": "Jordan",
+    "iso": "JOR",
+    "pct": 54.6,
+    "km": 1656
+   }
+  ],
+  "n_no_straight": 78,
+  "n_half_straight": 20,
+  "USA": {
+   "km": 10993,
+   "straight_pct": 54.5,
+   "water_pct": 33.8,
+   "mountain_pct": 9.3,
+   "other_pct": 2.3,
+   "straight": 5996
+  },
+  "CAN": {
+   "km": 8352,
+   "straight_pct": 59.3,
+   "water_pct": 25.9,
+   "mountain_pct": 12.3,
+   "other_pct": 2.5,
+   "straight": 4956
+  },
+  "EGY": {
+   "km": 2587,
+   "straight_pct": 80.7,
+   "water_pct": 0.7,
+   "mountain_pct": 3.5,
+   "other_pct": 15.1,
+   "straight": 2089
+  },
+  "LBY": {
+   "km": 4291,
+   "straight_pct": 70.9,
+   "water_pct": 0.0,
+   "mountain_pct": 1.2,
+   "other_pct": 28.0,
+   "straight": 3041
+  },
+  "DZA": {
+   "km": 6152,
+   "straight_pct": 51.6,
+   "water_pct": 0.0,
+   "mountain_pct": 10.9,
+   "other_pct": 37.5,
+   "straight": 3173
+  },
+  "MLI": {
+   "km": 7242,
+   "straight_pct": 41.4,
+   "water_pct": 2.4,
+   "mountain_pct": 0.4,
+   "other_pct": 55.7,
+   "straight": 2999
+  },
+  "MRT": {
+   "km": 4889,
+   "straight_pct": 71.1,
+   "water_pct": 15.3,
+   "mountain_pct": 0.0,
+   "other_pct": 13.6,
+   "straight": 3477
+  },
+  "SDN": {
+   "km": 6531,
+   "straight_pct": 43.9,
+   "water_pct": 0.6,
+   "mountain_pct": 11.9,
+   "other_pct": 43.6,
+   "straight": 2869
+  },
+  "TCD": {
+   "km": 5788,
+   "straight_pct": 43.8,
+   "water_pct": 19.5,
+   "mountain_pct": 0.0,
+   "other_pct": 36.7,
+   "straight": 2535
+  },
+  "NER": {
+   "km": 5586,
+   "straight_pct": 54.3,
+   "water_pct": 6.1,
+   "mountain_pct": 0.0,
+   "other_pct": 39.5,
+   "straight": 3036
+  },
+  "NAM": {
+   "km": 3861,
+   "straight_pct": 55.6,
+   "water_pct": 42.2,
+   "mountain_pct": 0.0,
+   "other_pct": 2.2,
+   "straight": 2147
+  },
+  "BWA": {
+   "km": 3751,
+   "straight_pct": 27.4,
+   "water_pct": 40.2,
+   "mountain_pct": 0.0,
+   "other_pct": 32.4,
+   "straight": 1028
+  },
+  "SAU": {
+   "km": 4151,
+   "straight_pct": 79.3,
+   "water_pct": 0.0,
+   "mountain_pct": 7.0,
+   "other_pct": 13.7,
+   "straight": 3290
+  },
+  "CHL": {
+   "km": 6245,
+   "straight_pct": 9.5,
+   "water_pct": 3.8,
+   "mountain_pct": 78.0,
+   "other_pct": 8.8,
+   "straight": 590
+  },
+  "ARG": {
+   "km": 9094,
+   "straight_pct": 8.0,
+   "water_pct": 35.0,
+   "mountain_pct": 46.4,
+   "other_pct": 10.6,
+   "straight": 730
+  },
+  "FRA": {
+   "km": 3311,
+   "straight_pct": 0.0,
+   "water_pct": 23.0,
+   "mountain_pct": 37.9,
+   "other_pct": 39.0,
+   "straight": 0
+  },
+  "DEU": {
+   "km": 3108,
+   "straight_pct": 0.0,
+   "water_pct": 34.8,
+   "mountain_pct": 25.7,
+   "other_pct": 39.4,
+   "straight": 0
+  },
+  "GBR": {
+   "km": 370,
+   "straight_pct": 0.0,
+   "water_pct": 10.3,
+   "mountain_pct": 0.0,
+   "other_pct": 89.7,
+   "straight": 0
+  },
+  "CHN": {
+   "km": 19091,
+   "straight_pct": 6.3,
+   "water_pct": 21.0,
+   "mountain_pct": 56.0,
+   "other_pct": 16.7,
+   "straight": 1202
+  },
+  "RUS": {
+   "km": 19032,
+   "straight_pct": 5.5,
+   "water_pct": 23.4,
+   "mountain_pct": 16.1,
+   "other_pct": 55.1,
+   "straight": 1040
+  },
+  "IND": {
+   "km": 10811,
+   "straight_pct": 1.3,
+   "water_pct": 6.6,
+   "mountain_pct": 43.6,
+   "other_pct": 48.4,
+   "straight": 143
+  },
+  "BRA": {
+   "km": 12300,
+   "straight_pct": 11.3,
+   "water_pct": 28.9,
+   "mountain_pct": 9.5,
+   "other_pct": 50.3,
+   "straight": 1387
+  }
+ },
+ "top": [
+  {
+   "rank": 1,
+   "name": "Canada and United States",
+   "a": "CAN",
+   "b": "USA",
+   "km": 2020,
+   "kind": "parallel",
+   "value": 48.993,
+   "desc": "Parallel 48.99 degrees N",
+   "treaty": "Convention of 1818 (east of the Rocky Mountains) and Oregon Treaty (west of them)",
+   "year": 1818,
+   "year_label": "1818 and 1846",
+   "powers": "United Kingdom, United States",
+   "conf": "high",
+   "cont": "North America",
+   "mid": [
+    -109.025046,
+    48.992618
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Canada and United States",
+   "a": "CAN",
+   "b": "USA",
+   "km": 1042,
+   "kind": "meridian",
+   "value": -141.003,
+   "desc": "Meridian 141.00 degrees W",
+   "treaty": "Anglo-Russian Convention of St Petersburg",
+   "year": 1825,
+   "year_label": "1825",
+   "powers": "Russian Empire, United Kingdom",
+   "conf": "high",
+   "cont": "North America",
+   "mid": [
+    -141.003378,
+    64.986009
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Mali and Mauritania",
+   "a": "MLI",
+   "b": "MRT",
+   "km": 945,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "French colonial decree moving the line between French Sudan and Mauritania (first drawn in 1913)",
+   "year": 1944,
+   "year_label": "1944 decree (Kayes 1963)",
+   "powers": "France (colonial decree); then Mali and Mauritania",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    -6.049678,
+    20.370489
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Libya and Chad",
+   "a": "LBY",
+   "b": "TCD",
+   "km": 812,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Anglo-French Declaration (1899), as interpreted in the Anglo-French Convention of 1919",
+   "year": 1899,
+   "year_label": "1899 (1919)",
+   "powers": "France, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    20.522809,
+    21.203926
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Egypt and Libya",
+   "a": "EGY",
+   "b": "LBY",
+   "km": 803,
+   "kind": "meridian",
+   "value": 24.981,
+   "desc": "Meridian 24.98 degrees E",
+   "treaty": "Italo-Egyptian boundary agreement",
+   "year": 1925,
+   "year_label": "1925",
+   "powers": "Egypt, Italy (with the United Kingdom)",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    24.981245,
+    26.372707
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Algeria and Mali",
+   "a": "DZA",
+   "b": "MLI",
+   "km": 657,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Agreement between the Commandant of Upper Senegal and Niger and the Military Commander of the Oasis territory (French Algeria), further defined by the Niamey Convention of 1909",
+   "year": 1905,
+   "year_label": "1905, refined 1909",
+   "powers": "France (between its own colonial administrations)",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    -1.483496,
+    22.821166
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "Egypt and Sudan",
+   "a": "EGY",
+   "b": "SDN",
+   "km": 649,
+   "kind": "parallel",
+   "value": 21.995,
+   "desc": "Parallel 22.00 degrees N",
+   "treaty": "Anglo-Egyptian Condominium Agreement",
+   "year": 1899,
+   "year_label": "1899",
+   "powers": "Egypt, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    28.192935,
+    21.994834
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "Algeria and Niger",
+   "a": "DZA",
+   "b": "NER",
+   "km": 547,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Agreement between the Commandant of Upper Senegal and Niger and the Military Commander of the Oasis territory (French Algeria), further defined by the Niamey Convention of 1909",
+   "year": 1905,
+   "year_label": "1905, refined 1909",
+   "powers": "France (between its own colonial administrations)",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    9.723313,
+    22.193427
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Kenya and Tanzania",
+   "a": "KEN",
+   "b": "TZA",
+   "km": 457,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Anglo-German Agreement",
+   "year": 1886,
+   "year_label": "1886",
+   "powers": "Germany, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    35.630207,
+    -1.921174
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Angola and Namibia",
+   "a": "AGO",
+   "b": "NAM",
+   "km": 452,
+   "kind": "parallel",
+   "value": -17.389,
+   "desc": "Parallel 17.39 degrees S",
+   "treaty": "Portuguese-German Declaration",
+   "year": 1886,
+   "year_label": "1886",
+   "powers": "Germany, Portugal",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    16.339808,
+    -17.388653
+   ]
+  },
+  {
+   "rank": 11,
+   "name": "Algeria and Mauritania",
+   "a": "DZA",
+   "b": "MRT",
+   "km": 441,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Agreement between the Commandant of Upper Senegal and Niger and the Military Commander of the Oasis territory (French Algeria), further defined by the Niamey Convention of 1909",
+   "year": 1905,
+   "year_label": "1905, refined 1909",
+   "powers": "France (between its own colonial administrations)",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    -6.703333,
+    26.121559
+   ]
+  },
+  {
+   "rank": 12,
+   "name": "Sudan and Chad",
+   "a": "SDN",
+   "b": "TCD",
+   "km": 418,
+   "kind": "meridian",
+   "value": 23.983,
+   "desc": "Meridian 23.98 degrees E",
+   "treaty": "Anglo-French Convention (following the 1899 Declaration)",
+   "year": 1919,
+   "year_label": "1919",
+   "powers": "France, United Kingdom",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    23.983063,
+    17.405657
+   ]
+  },
+  {
+   "rank": 13,
+   "name": "Indonesia and Papua New Guinea",
+   "a": "IDN",
+   "b": "PNG",
+   "km": 413,
+   "kind": "meridian",
+   "value": 140.975,
+   "desc": "Meridian 140.97 degrees E",
+   "treaty": "Anglo-Dutch boundary treaty",
+   "year": 1895,
+   "year_label": "1895",
+   "powers": "Netherlands, United Kingdom",
+   "conf": "medium",
+   "cont": "Oceania",
+   "mid": [
+    140.976871,
+    -4.988486
+   ]
+  },
+  {
+   "rank": 14,
+   "name": "Mali and Mauritania",
+   "a": "MLI",
+   "b": "MRT",
+   "km": 411,
+   "kind": "parallel",
+   "value": 15.495,
+   "desc": "Parallel 15.49 degrees N",
+   "treaty": "French colonial decree moving the line between French Sudan and Mauritania (first drawn in 1913)",
+   "year": 1944,
+   "year_label": "1944 decree (Kayes 1963)",
+   "powers": "France (colonial decree); then Mali and Mauritania",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    -7.517237,
+    15.494973
+   ]
+  },
+  {
+   "rank": 15,
+   "name": "Mauritania and Western Sahara",
+   "a": "MRT",
+   "b": "SAH",
+   "km": 409,
+   "kind": "parallel",
+   "value": 21.333,
+   "desc": "Parallel 21.33 degrees N",
+   "treaty": "Franco-Spanish Convention of Paris",
+   "year": 1900,
+   "year_label": "1900",
+   "powers": "France, Spain",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    -15.002258,
+    21.333169
+   ]
+  },
+  {
+   "rank": 16,
+   "name": "Kazakhstan and Uzbekistan",
+   "a": "KAZ",
+   "b": "UZB",
+   "km": 408,
+   "kind": "meridian",
+   "value": 55.977,
+   "desc": "Meridian 55.98 degrees E",
+   "treaty": "Soviet national-territorial delimitation between the Kazakh and Uzbek (Karakalpak) republics, with transfers in 1936, 1956 and 1963",
+   "year": 1924,
+   "year_label": "Soviet 1924, later transfers",
+   "powers": "Soviet Union (between its own republics); then Kazakhstan and Uzbekistan",
+   "conf": "medium",
+   "cont": "Asia",
+   "mid": [
+    55.977079,
+    43.15747
+   ]
+  },
+  {
+   "rank": 17,
+   "name": "Kenya and Somalia",
+   "a": "KEN",
+   "b": "SOM",
+   "km": 407,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Anglo-Italian Treaty ceding Jubaland to Italy",
+   "year": 1924,
+   "year_label": "1924",
+   "powers": "Italy, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    40.968486,
+    0.997201
+   ]
+  },
+  {
+   "rank": 18,
+   "name": "Namibia and South Africa",
+   "a": "NAM",
+   "b": "ZAF",
+   "km": 407,
+   "kind": "meridian",
+   "value": 19.982,
+   "desc": "Meridian 19.98 degrees E",
+   "treaty": "Anglo-German Agreement (Heligoland-Zanzibar Treaty)",
+   "year": 1890,
+   "year_label": "1890",
+   "powers": "Germany, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    19.98248,
+    -26.559101
+   ]
+  },
+  {
+   "rank": 19,
+   "name": "Botswana and Namibia",
+   "a": "BWA",
+   "b": "NAM",
+   "km": 403,
+   "kind": "meridian",
+   "value": 20.979,
+   "desc": "Meridian 20.98 degrees E",
+   "treaty": "Anglo-German Agreement (Heligoland-Zanzibar Treaty)",
+   "year": 1890,
+   "year_label": "1890",
+   "powers": "Germany, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    20.978285,
+    -20.000794
+   ]
+  },
+  {
+   "rank": 20,
+   "name": "Mexico and United States",
+   "a": "MEX",
+   "b": "USA",
+   "km": 378,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Gadsden Purchase (Treaty of La Mesilla)",
+   "year": 1853,
+   "year_label": "1853",
+   "powers": "Mexico, United States",
+   "conf": "high",
+   "cont": "North America",
+   "mid": [
+    -111.915464,
+    31.601431
+   ]
+  },
+  {
+   "rank": 21,
+   "name": "Angola and Zambia",
+   "a": "AGO",
+   "b": "ZMB",
+   "km": 350,
+   "kind": "meridian",
+   "value": 21.981,
+   "desc": "Meridian 21.98 degrees E",
+   "treaty": "Arbitral award of King Victor Emmanuel III of Italy on the western limits of Barotseland",
+   "year": 1905,
+   "year_label": "1905",
+   "powers": "Portugal, United Kingdom (arbitrated by Italy)",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    21.981428,
+    -15.261858
+   ]
+  },
+  {
+   "rank": 22,
+   "name": "Tanzania and Uganda",
+   "a": "TZA",
+   "b": "UGA",
+   "km": 344,
+   "kind": "parallel",
+   "value": -1.002,
+   "desc": "Parallel 1.00 degrees S",
+   "treaty": "Anglo-German Agreement (Heligoland-Zanzibar Treaty)",
+   "year": 1890,
+   "year_label": "1890",
+   "powers": "Germany, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    32.357642,
+    -1.002573
+   ]
+  },
+  {
+   "rank": 23,
+   "name": "Ethiopia and Somaliland",
+   "a": "ETH",
+   "b": "SOL",
+   "km": 343,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Anglo-Ethiopian Treaty (Rennell Rodd)",
+   "year": 1897,
+   "year_label": "1897",
+   "powers": "Ethiopia, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    45.514462,
+    8.496537
+   ]
+  },
+  {
+   "rank": 24,
+   "name": "Oman and Saudi Arabia",
+   "a": "OMN",
+   "b": "SAU",
+   "km": 334,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Saudi-Omani boundary agreement",
+   "year": 1990,
+   "year_label": "1990",
+   "powers": "Oman, Saudi Arabia",
+   "conf": "medium",
+   "cont": "Asia",
+   "mid": [
+    53.458886,
+    19.488992
+   ]
+  },
+  {
+   "rank": 25,
+   "name": "Mauritania and Western Sahara",
+   "a": "MRT",
+   "b": "SAH",
+   "km": 333,
+   "kind": "parallel",
+   "value": 25.995,
+   "desc": "Parallel 26.00 degrees N",
+   "treaty": "Franco-Spanish conventions (1900, extended north in 1904)",
+   "year": 1904,
+   "year_label": "1904?",
+   "powers": "France, Spain",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    -10.302958,
+    25.994952
+   ]
+  },
+  {
+   "rank": 26,
+   "name": "Niger and Chad",
+   "a": "NER",
+   "b": "TCD",
+   "km": 333,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Memorandum No. 2268 transferring Tibesti from French West Africa to French Equatorial Africa",
+   "year": 1931,
+   "year_label": "1931",
+   "powers": "France (between its own colonial administrations)",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    15.599182,
+    18.356348
+   ]
+  },
+  {
+   "rank": 27,
+   "name": "Brazil and Colombia",
+   "a": "BRA",
+   "b": "COL",
+   "km": 316,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Brazil-Colombia boundary treaty",
+   "year": 1928,
+   "year_label": "1928",
+   "powers": "Brazil, Colombia",
+   "conf": "medium",
+   "cont": "South America",
+   "mid": [
+    -69.859168,
+    -3.717653
+   ]
+  },
+  {
+   "rank": 28,
+   "name": "Canada and United States",
+   "a": "CAN",
+   "b": "USA",
+   "km": 306,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Boundary commissions under the Treaty of Ghent, confirmed by the Webster-Ashburton Treaty",
+   "year": 1842,
+   "year_label": "1822 to 1842",
+   "powers": "United Kingdom, United States",
+   "conf": "medium",
+   "cont": "North America",
+   "mid": [
+    -86.11337,
+    47.412663
+   ]
+  },
+  {
+   "rank": 29,
+   "name": "Botswana and Namibia",
+   "a": "BWA",
+   "b": "NAM",
+   "km": 305,
+   "kind": "meridian",
+   "value": 19.98,
+   "desc": "Meridian 19.98 degrees E",
+   "treaty": "Anglo-German Agreement (Heligoland-Zanzibar Treaty)",
+   "year": 1890,
+   "year_label": "1890",
+   "powers": "Germany, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    19.979855,
+    -23.308551
+   ]
+  },
+  {
+   "rank": 30,
+   "name": "Saudi Arabia and Yemen",
+   "a": "SAU",
+   "b": "YEM",
+   "km": 303,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Treaty of Jeddah",
+   "year": 2000,
+   "year_label": "2000",
+   "powers": "Saudi Arabia, Yemen",
+   "conf": "high",
+   "cont": "Asia",
+   "mid": [
+    50.539323,
+    18.801903
+   ]
+  },
+  {
+   "rank": 31,
+   "name": "Egypt and Sudan",
+   "a": "EGY",
+   "b": "SDN",
+   "km": 290,
+   "kind": "parallel",
+   "value": 21.996,
+   "desc": "Parallel 22.00 degrees N",
+   "treaty": "Anglo-Egyptian Condominium Agreement",
+   "year": 1899,
+   "year_label": "1899",
+   "powers": "Egypt, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    35.253796,
+    21.995558
+   ]
+  },
+  {
+   "rank": 32,
+   "name": "Mauritania and Western Sahara",
+   "a": "MRT",
+   "b": "SAH",
+   "km": 281,
+   "kind": "meridian",
+   "value": -12.015,
+   "desc": "Meridian 12.02 degrees W",
+   "treaty": "Franco-Spanish Convention of Paris",
+   "year": 1900,
+   "year_label": "1900",
+   "powers": "France, Spain",
+   "conf": "medium",
+   "cont": "Africa",
+   "mid": [
+    -12.015308,
+    24.709862
+   ]
+  },
+  {
+   "rank": 33,
+   "name": "Ethiopia and Somalia",
+   "a": "ETH",
+   "b": "SOM",
+   "km": 277,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Provisional Administrative Line (British), drawn after the Ogaden and Haud returned to Ethiopia; the Italo-Ethiopian convention of 1908 was never demarcated",
+   "year": 1950,
+   "year_label": "1950s",
+   "powers": "United Kingdom (provisional line); Ethiopia and Italy in 1908",
+   "conf": "low",
+   "cont": "Africa",
+   "mid": [
+    47.104287,
+    7.153001
+   ]
+  },
+  {
+   "rank": 34,
+   "name": "Egypt and Sudan",
+   "a": "EGY",
+   "b": "SDN",
+   "km": 273,
+   "kind": "parallel",
+   "value": 21.995,
+   "desc": "Parallel 22.00 degrees N",
+   "treaty": "Anglo-Egyptian Condominium Agreement",
+   "year": 1899,
+   "year_label": "1899",
+   "powers": "Egypt, United Kingdom",
+   "conf": "high",
+   "cont": "Africa",
+   "mid": [
+    32.545434,
+    21.995403
+   ]
+  },
+  {
+   "rank": 35,
+   "name": "Mexico and United States",
+   "a": "MEX",
+   "b": "USA",
+   "km": 272,
+   "kind": "parallel",
+   "value": 31.328,
+   "desc": "Parallel 31.33 degrees N",
+   "treaty": "Gadsden Purchase (Treaty of La Mesilla)",
+   "year": 1853,
+   "year_label": "1853",
+   "powers": "Mexico, United States",
+   "conf": "high",
+   "cont": "North America",
+   "mid": [
+    -109.539071,
+    31.32734
+   ]
+  },
+  {
+   "rank": 36,
+   "name": "Canada and United States",
+   "a": "CAN",
+   "b": "USA",
+   "km": 268,
+   "kind": "parallel",
+   "value": 45.006,
+   "desc": "Parallel 45.01 degrees N",
+   "treaty": "Treaty of Paris (1783), line fixed by the Webster-Ashburton Treaty",
+   "year": 1783,
+   "year_label": "1783 (fixed 1842)",
+   "powers": "United Kingdom, United States",
+   "conf": "high",
+   "cont": "North America",
+   "mid": [
+    -73.351341,
+    45.004634
+   ]
+  },
+  {
+   "rank": 37,
+   "name": "United Arab Emirates and Saudi Arabia",
+   "a": "ARE",
+   "b": "SAU",
+   "km": 266,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Treaty of Jeddah (text long unpublished; the line drawn is approximate)",
+   "year": 1974,
+   "year_label": "1974",
+   "powers": "Saudi Arabia, United Arab Emirates",
+   "conf": "medium",
+   "cont": "Asia",
+   "mid": [
+    53.856071,
+    22.77458
+   ]
+  },
+  {
+   "rank": 38,
+   "name": "Indonesia and Papua New Guinea",
+   "a": "IDN",
+   "b": "PNG",
+   "km": 244,
+   "kind": "meridian",
+   "value": 140.977,
+   "desc": "Meridian 140.98 degrees E",
+   "treaty": "Anglo-Dutch boundary treaty",
+   "year": 1895,
+   "year_label": "1895",
+   "powers": "Netherlands, United Kingdom",
+   "conf": "medium",
+   "cont": "Oceania",
+   "mid": [
+    140.976904,
+    -7.962097
+   ]
+  },
+  {
+   "rank": 39,
+   "name": "Argentina and Chile",
+   "a": "ARG",
+   "b": "CHL",
+   "km": 239,
+   "kind": "meridian",
+   "value": -68.635,
+   "desc": "Meridian 68.64 degrees W",
+   "treaty": "Boundary Treaty of 1881",
+   "year": 1881,
+   "year_label": "1881",
+   "powers": "Argentina, Chile",
+   "conf": "high",
+   "cont": "South America",
+   "mid": [
+    -68.634746,
+    -53.710881
+   ]
+  },
+  {
+   "rank": 40,
+   "name": "Kazakhstan and Uzbekistan",
+   "a": "KAZ",
+   "b": "UZB",
+   "km": 238,
+   "kind": "line",
+   "value": null,
+   "desc": "Straight line (not a parallel or meridian)",
+   "treaty": "Soviet national-territorial delimitation between the Kazakh and Uzbek (Karakalpak) republics, with transfers in 1936, 1956 and 1963",
+   "year": 1924,
+   "year_label": "Soviet 1924, later transfers",
+   "powers": "Soviet Union (between its own republics); then Kazakhstan and Uzbekistan",
+   "conf": "medium",
+   "cont": "Asia",
+   "mid": [
+    59.675768,
+    45.029139
+   ]
+  }
+ ],
+ "top_n": 40,
+ "top_km": 18394,
+ "top_pct_of_straight": 40.7,
+ "top_years": {
+  "n_dated": 40,
+  "first": 1783,
+  "last": 2000,
+  "median": 1899,
+  "n_1880_1914": 21,
+  "n_before_1880": 6,
+  "n_1915_1945": 9,
+  "n_after_1945": 4,
+  "km_1880_1914": 8649,
+  "n_low": 1,
+  "n_medium": 18,
+  "n_high": 21,
+  "n_undated": 0,
+  "pct_1880_1914_km": 47.0
+ },
+ "top_powers": {
+  "United Kingdom": 21,
+  "France": 11,
+  "Germany": 6,
+  "Italy": 4,
+  "Portugal": 2,
+  "Spain": 3,
+  "United States": 5,
+  "Russian": 1,
+  "Soviet": 2,
+  "Netherlands": 2,
+  "Egypt": 4,
+  "Saudi": 3
+ },
+ "top_africa_n": 25,
+ "top_africa_km": 11347,
+ "top_europe_powers_n": 31,
+ "seg_longest": {
+  "rank": 1,
+  "name": "Canada and United States",
+  "a": "CAN",
+  "b": "USA",
+  "km": 2020,
+  "kind": "parallel",
+  "value": 48.993,
+  "desc": "Parallel 48.99 degrees N",
+  "treaty": "Convention of 1818 (east of the Rocky Mountains) and Oregon Treaty (west of them)",
+  "year": 1818,
+  "year_label": "1818 and 1846",
+  "powers": "United Kingdom, United States",
+  "conf": "high",
+  "cont": "North America",
+  "mid": [
+   -109.025046,
+   48.992618
+  ]
+ },
+ "ex": {
+  "us49": {
+   "km": 2020,
+   "rank": 1,
+   "year": 1818,
+   "desc": "Parallel 48.99 degrees N"
+  },
+  "us141": {
+   "km": 1042,
+   "rank": 2,
+   "year": 1825,
+   "desc": "Meridian 141.00 degrees W"
+  },
+  "eg25": {
+   "km": 803,
+   "rank": 5,
+   "year": 1925,
+   "desc": "Meridian 24.98 degrees E"
+  },
+  "eg22": {
+   "km": 649,
+   "rank": 7,
+   "year": 1899,
+   "desc": "Parallel 22.00 degrees N"
+  },
+  "ly": {
+   "km": 812,
+   "rank": 4,
+   "year": 1899,
+   "desc": "Straight line (not a parallel or meridian)"
+  },
+  "ml": {
+   "km": 945,
+   "rank": 3,
+   "year": 1944,
+   "desc": "Straight line (not a parallel or meridian)"
+  },
+  "tf": {
+   "km": 239,
+   "rank": 39,
+   "year": 1881,
+   "desc": "Meridian 68.64 degrees W"
+  },
+  "ng": {
+   "km": 413,
+   "rank": 13,
+   "year": 1895,
+   "desc": "Meridian 140.97 degrees E"
+  },
+  "kt": {
+   "km": 457,
+   "rank": 9,
+   "year": 1886,
+   "desc": "Straight line (not a parallel or meridian)"
+  },
+  "mx": {
+   "km": 378,
+   "rank": 20,
+   "year": 1853,
+   "desc": "Straight line (not a parallel or meridian)"
+  },
+  "eg22_total": 1212,
+  "us_ca_straight": 4956,
+  "us_ca_total": 8352,
+  "us_ca_pct": 59.3
+ },
+ "africa": {
+  "rank_share": 3,
+  "straight_pct": 30.2,
+  "straight_km": 24332,
+  "share_of_world_straight": 53.8,
+  "astro_pct": 12.3,
+  "most_straight_km": "Africa",
+  "top_share_name": "Oceania",
+  "top_share_pct": 87.9,
+  "second_share_name": "North America",
+  "second_share_pct": 45.9,
+  "na_without_usca_pct": 28.9,
+  "na_usca_share_of_na_straight": 72.2,
+  "n_settings": 12,
+  "n_settings_first": 0,
+  "n_settings_top2": 0,
+  "mostly_straight_pct": 25.5,
+  "n_borders": 110,
+  "n_mostly_straight": 28,
+  "rank_mostly_straight": 2,
+  "rank_astro": 3,
+  "rank_share5": 2,
+  "n_settings_first5": 0,
+  "n_settings_second5": 12,
+  "n_settings_na_first5": 12,
+  "rank_mostly_straight5": 1,
+  "rank_astro5": 2,
+  "first_mostly_straight5": "Africa",
+  "first_astro5": "North America",
+  "oceania_n_borders": 1
+ },
+ "sens_straight": [
+  {
+   "tol": 0.25,
+   "lmin": 25.0,
+   "world_pct": 23.3,
+   "africa_pct": 35.5,
+   "first": "Oceania",
+   "first_pct": 87.8,
+   "africa_rank": 3,
+   "Africa": 35.5,
+   "Asia": 15.9,
+   "Europe": 3.4,
+   "North America": 48.8,
+   "South America": 15.3,
+   "Oceania": 87.8,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 0.25,
+   "lmin": 50.0,
+   "world_pct": 18.0,
+   "africa_pct": 28.2,
+   "first": "Oceania",
+   "first_pct": 87.8,
+   "africa_rank": 3,
+   "Africa": 28.2,
+   "Asia": 10.7,
+   "Europe": 1.0,
+   "North America": 44.1,
+   "South America": 12.1,
+   "Oceania": 87.8,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 0.25,
+   "lmin": 100.0,
+   "world_pct": 13.5,
+   "africa_pct": 21.9,
+   "first": "Oceania",
+   "first_pct": 87.8,
+   "africa_rank": 3,
+   "Africa": 21.9,
+   "Asia": 6.3,
+   "Europe": 0.6,
+   "North America": 38.5,
+   "South America": 7.7,
+   "Oceania": 87.8,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 0.5,
+   "lmin": 25.0,
+   "world_pct": 24.5,
+   "africa_pct": 36.9,
+   "first": "Oceania",
+   "first_pct": 87.9,
+   "africa_rank": 3,
+   "Africa": 36.9,
+   "Asia": 17.0,
+   "Europe": 4.4,
+   "North America": 49.9,
+   "South America": 16.4,
+   "Oceania": 87.9,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 0.5,
+   "lmin": 50.0,
+   "world_pct": 18.3,
+   "africa_pct": 28.4,
+   "first": "Oceania",
+   "first_pct": 87.9,
+   "africa_rank": 3,
+   "Africa": 28.4,
+   "Asia": 11.1,
+   "Europe": 1.0,
+   "North America": 44.8,
+   "South America": 12.6,
+   "Oceania": 87.9,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 0.5,
+   "lmin": 100.0,
+   "world_pct": 13.8,
+   "africa_pct": 22.3,
+   "first": "Oceania",
+   "first_pct": 87.9,
+   "africa_rank": 3,
+   "Africa": 22.3,
+   "Asia": 6.7,
+   "Europe": 0.6,
+   "North America": 39.1,
+   "South America": 8.1,
+   "Oceania": 87.9,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 1.0,
+   "lmin": 25.0,
+   "world_pct": 30.9,
+   "africa_pct": 44.9,
+   "first": "Oceania",
+   "first_pct": 87.9,
+   "africa_rank": 3,
+   "Africa": 44.9,
+   "Asia": 23.6,
+   "Europe": 8.4,
+   "North America": 53.5,
+   "South America": 22.2,
+   "Oceania": 87.9,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 1.0,
+   "lmin": 50.0,
+   "world_pct": 19.4,
+   "africa_pct": 30.2,
+   "first": "Oceania",
+   "first_pct": 87.9,
+   "africa_rank": 3,
+   "Africa": 30.2,
+   "Asia": 11.7,
+   "Europe": 1.5,
+   "North America": 45.9,
+   "South America": 13.2,
+   "Oceania": 87.9,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 1.0,
+   "lmin": 100.0,
+   "world_pct": 14.4,
+   "africa_pct": 22.9,
+   "first": "Oceania",
+   "first_pct": 87.9,
+   "africa_rank": 3,
+   "Africa": 22.9,
+   "Asia": 7.7,
+   "Europe": 0.7,
+   "North America": 39.5,
+   "South America": 8.4,
+   "Oceania": 87.9,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 2.0,
+   "lmin": 25.0,
+   "world_pct": 51.4,
+   "africa_pct": 63.4,
+   "first": "Oceania",
+   "first_pct": 88.3,
+   "africa_rank": 3,
+   "Africa": 63.4,
+   "Asia": 46.4,
+   "Europe": 28.7,
+   "North America": 65.2,
+   "South America": 47.4,
+   "Oceania": 88.3,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 2.0,
+   "lmin": 50.0,
+   "world_pct": 24.0,
+   "africa_pct": 36.2,
+   "first": "Oceania",
+   "first_pct": 88.3,
+   "africa_rank": 3,
+   "Africa": 36.2,
+   "Asia": 15.7,
+   "Europe": 4.6,
+   "North America": 47.9,
+   "South America": 18.9,
+   "Oceania": 88.3,
+   "first5": "North America",
+   "africa_rank5": 2
+  },
+  {
+   "tol": 2.0,
+   "lmin": 100.0,
+   "world_pct": 15.1,
+   "africa_pct": 23.8,
+   "first": "Oceania",
+   "first_pct": 88.3,
+   "africa_rank": 3,
+   "Africa": 23.8,
+   "Asia": 8.4,
+   "Europe": 0.7,
+   "North America": 41.4,
+   "South America": 8.5,
+   "Oceania": 88.3,
+   "first5": "North America",
+   "africa_rank5": 2
+  }
+ ],
+ "sens_summary": {
+  "lmin50_min": 18.0,
+  "lmin50_max": 24.0,
+  "lmin100_min": 13.5,
+  "lmin100_max": 15.1,
+  "all_min": 13.5,
+  "all_max": 51.4,
+  "water_min": 19.4,
+  "water_max": 23.6,
+  "mountain_min": 11.0,
+  "mountain_max": 32.4
+ },
+ "sens_water": [
+  {
+   "river": 1.5,
+   "wmin": 10.0,
+   "pct": 20.2
+  },
+  {
+   "river": 1.5,
+   "wmin": 15.0,
+   "pct": 20.0
+  },
+  {
+   "river": 1.5,
+   "wmin": 30.0,
+   "pct": 19.4
+  },
+  {
+   "river": 3.0,
+   "wmin": 10.0,
+   "pct": 21.4
+  },
+  {
+   "river": 3.0,
+   "wmin": 15.0,
+   "pct": 20.9
+  },
+  {
+   "river": 3.0,
+   "wmin": 30.0,
+   "pct": 20.0
+  },
+  {
+   "river": 5.0,
+   "wmin": 10.0,
+   "pct": 23.6
+  },
+  {
+   "river": 5.0,
+   "wmin": 15.0,
+   "pct": 22.7
+  },
+  {
+   "river": 5.0,
+   "wmin": 30.0,
+   "pct": 21.3
+  }
+ ],
+ "sens_mountain": [
+  {
+   "rel": 200.0,
+   "r": 1,
+   "pct": 21.5
+  },
+  {
+   "rel": 200.0,
+   "r": 2,
+   "pct": 29.1
+  },
+  {
+   "rel": 200.0,
+   "r": 3,
+   "pct": 32.4
+  },
+  {
+   "rel": 300.0,
+   "r": 1,
+   "pct": 16.6
+  },
+  {
+   "rel": 300.0,
+   "r": 2,
+   "pct": 24.7
+  },
+  {
+   "rel": 300.0,
+   "r": 3,
+   "pct": 29.2
+  },
+  {
+   "rel": 500.0,
+   "r": 1,
+   "pct": 11.0
+  },
+  {
+   "rel": 500.0,
+   "r": 2,
+   "pct": 18.2
+  },
+  {
+   "rel": 500.0,
+   "r": 3,
+   "pct": 23.2
+  }
+ ],
+ "scale": {
+  "10m": {
+   "total": 233534,
+   "straight_pct": 19.4
+  },
+  "50m": {
+   "total": 214305,
+   "straight_pct": 25.4
+  },
+  "110m": {
+   "total": 197885,
+   "straight_pct": 83.6
+  }
+ },
+ "ranges": {
+  "n": 222,
+  "straight_in_range_pct": 9.1,
+  "water_in_range_pct": 8.6,
+  "mountain_in_range_pct": 59.1,
+  "other_in_range_pct": 13.3
+ },
+ "water_examples": [
+  {
+   "name": "China and Russia",
+   "a": "CHN",
+   "b": "RUS",
+   "km": 2857,
+   "pct": 80.6,
+   "total": 3544
+  },
+  {
+   "name": "Canada and United States",
+   "a": "CAN",
+   "b": "USA",
+   "km": 2163,
+   "pct": 25.9,
+   "total": 8352
+  },
+  {
+   "name": "Argentina and Paraguay",
+   "a": "ARG",
+   "b": "PRY",
+   "km": 1645,
+   "pct": 100.0,
+   "total": 1645
+  },
+  {
+   "name": "Mexico and United States",
+   "a": "MEX",
+   "b": "USA",
+   "km": 1553,
+   "pct": 58.8,
+   "total": 2641
+  },
+  {
+   "name": "Central African Republic and DR Congo",
+   "a": "CAF",
+   "b": "COD",
+   "km": 1446,
+   "pct": 99.5,
+   "total": 1453
+  },
+  {
+   "name": "Bolivia and Brazil",
+   "a": "BOL",
+   "b": "BRA",
+   "km": 1350,
+   "pct": 50.7,
+   "total": 2664
+  },
+  {
+   "name": "Botswana and South Africa",
+   "a": "BWA",
+   "b": "ZAF",
+   "km": 1206,
+   "pct": 74.6,
+   "total": 1615
+  },
+  {
+   "name": "DR Congo and Republic of the Congo",
+   "a": "COD",
+   "b": "COG",
+   "km": 1115,
+   "pct": 75.9,
+   "total": 1468
+  },
+  {
+   "name": "Colombia and Peru",
+   "a": "COL",
+   "b": "PER",
+   "km": 1062,
+   "pct": 87.1,
+   "total": 1220
+  },
+  {
+   "name": "Afghanistan and Tajikistan",
+   "a": "AFG",
+   "b": "TJK",
+   "km": 993,
+   "pct": 84.9,
+   "total": 1170
+  }
+ ],
+ "mountain_examples": [
+  {
+   "name": "Argentina and Chile",
+   "a": "ARG",
+   "b": "CHL",
+   "km": 3881,
+   "pct": 73.8,
+   "total": 5257
+  },
+  {
+   "name": "China and India",
+   "a": "CHN",
+   "b": "IND",
+   "km": 2246,
+   "pct": 100.0,
+   "total": 2246
+  },
+  {
+   "name": "Afghanistan and Pakistan",
+   "a": "AFG",
+   "b": "PAK",
+   "km": 1649,
+   "pct": 73.4,
+   "total": 2245
+  },
+  {
+   "name": "China and Myanmar",
+   "a": "CHN",
+   "b": "MMR",
+   "km": 1484,
+   "pct": 87.3,
+   "total": 1699
+  },
+  {
+   "name": "China and Kazakhstan",
+   "a": "CHN",
+   "b": "KAZ",
+   "km": 1310,
+   "pct": 87.1,
+   "total": 1503
+  },
+  {
+   "name": "Mongolia and Russia",
+   "a": "MNG",
+   "b": "RUS",
+   "km": 1307,
+   "pct": 44.9,
+   "total": 2913
+  },
+  {
+   "name": "Laos and Vietnam",
+   "a": "LAO",
+   "b": "VNM",
+   "km": 1302,
+   "pct": 74.4,
+   "total": 1750
+  },
+  {
+   "name": "China and Mongolia",
+   "a": "CHN",
+   "b": "MNG",
+   "km": 1262,
+   "pct": 28.8,
+   "total": 4378
+  },
+  {
+   "name": "China and Nepal",
+   "a": "CHN",
+   "b": "NPL",
+   "km": 1112,
+   "pct": 100.0,
+   "total": 1112
+  },
+  {
+   "name": "India and Myanmar",
+   "a": "IND",
+   "b": "MMR",
+   "km": 1090,
+   "pct": 85.9,
+   "total": 1268
+  }
+ ],
+ "retrieved": "2026",
+ "edges_over_50": 5,
+ "cont": {
+  "Oceania": {
+   "name": "Oceania",
+   "km": 749,
+   "straight": 658,
+   "water": 91,
+   "mountain": 0,
+   "other": 0,
+   "straight_pct": 87.9,
+   "water_pct": 12.1,
+   "mountain_pct": 0.0,
+   "other_pct": 0.0,
+   "share_of_world_straight": 1.5,
+   "astro_pct": 87.9,
+   "n_borders": 1,
+   "n_mostly_straight": 1,
+   "mostly_straight_pct": 100.0,
+   "median_border_straight_pct": 87.9
+  },
+  "North_America": {
+   "name": "North America",
+   "km": 14965,
+   "straight": 6867,
+   "water": 5035,
+   "mountain": 2206,
+   "other": 857,
+   "straight_pct": 45.9,
+   "water_pct": 33.6,
+   "mountain_pct": 14.7,
+   "other_pct": 5.7,
+   "share_of_world_straight": 15.2,
+   "astro_pct": 27.4,
+   "n_borders": 14,
+   "n_mostly_straight": 3,
+   "mostly_straight_pct": 21.4,
+   "median_border_straight_pct": 0.0
+  },
+  "Africa": {
+   "name": "Africa",
+   "km": 80457,
+   "straight": 24332,
+   "water": 16514,
+   "mountain": 6865,
+   "other": 32746,
+   "straight_pct": 30.2,
+   "water_pct": 20.5,
+   "mountain_pct": 8.5,
+   "other_pct": 40.7,
+   "share_of_world_straight": 53.8,
+   "astro_pct": 12.3,
+   "n_borders": 110,
+   "n_mostly_straight": 28,
+   "mostly_straight_pct": 25.5,
+   "median_border_straight_pct": 13.9
+  },
+  "South_America": {
+   "name": "South America",
+   "km": 29934,
+   "straight": 3939,
+   "water": 9372,
+   "mountain": 8197,
+   "other": 8426,
+   "straight_pct": 13.2,
+   "water_pct": 31.3,
+   "mountain_pct": 27.4,
+   "other_pct": 28.1,
+   "share_of_world_straight": 8.7,
+   "astro_pct": 3.2,
+   "n_borders": 25,
+   "n_mostly_straight": 1,
+   "mostly_straight_pct": 4.0,
+   "median_border_straight_pct": 0.0
+  },
+  "Asia": {
+   "name": "Asia",
+   "km": 77037,
+   "straight": 8989,
+   "water": 10351,
+   "mountain": 32163,
+   "other": 25535,
+   "straight_pct": 11.7,
+   "water_pct": 13.4,
+   "mountain_pct": 41.7,
+   "other_pct": 33.1,
+   "share_of_world_straight": 19.9,
+   "astro_pct": 0.9,
+   "n_borders": 93,
+   "n_mostly_straight": 13,
+   "mostly_straight_pct": 14.0,
+   "median_border_straight_pct": 0.0
+  },
+  "Europe": {
+   "name": "Europe",
+   "km": 30392,
+   "straight": 448,
+   "water": 7508,
+   "mountain": 8363,
+   "other": 14073,
+   "straight_pct": 1.5,
+   "water_pct": 24.7,
+   "mountain_pct": 27.5,
+   "other_pct": 46.3,
+   "share_of_world_straight": 1.0,
+   "astro_pct": 0.0,
+   "n_borders": 89,
+   "n_mostly_straight": 1,
+   "mostly_straight_pct": 1.1,
+   "median_border_straight_pct": 0.0
+  }
+ }
+}

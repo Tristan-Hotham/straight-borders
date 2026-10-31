@@ -1,0 +1,333 @@
+iso_a,country_a,iso_b,country_b,continent,km,straight_km,water_km,mountain_km,other_km,straight_pct,water_pct,mountain_pct,other_pct
+CAN,Canada,USA,United States,North America,8351.8,4955.8,2162.8,1026.5,206.7,59.3,25.9,12.3,2.5
+KAZ,Kazakhstan,RUS,Russia,Asia,6657.6,527.3,563.6,563.8,5002.9,7.9,8.5,8.5,75.1
+ARG,Argentina,CHL,Chile,South America,5257.3,590.2,239.0,3881.4,546.7,11.2,4.5,73.8,10.4
+CHN,China,MNG,Mongolia,Asia,4377.8,1000.9,38.1,1261.7,2077.0,22.9,0.9,28.8,47.4
+CHN,China,RUS,Russia,Asia,3544.4,147.0,2857.1,261.6,278.7,4.1,80.6,7.4,7.9
+MNG,Mongolia,RUS,Russia,Asia,2913.0,102.1,18.5,1307.1,1485.3,3.5,0.6,44.9,51.0
+IND,India,PAK,Pakistan,Asia,2682.6,62.4,279.9,635.1,1705.1,2.3,10.4,23.7,63.6
+BOL,Bolivia,BRA,Brazil,South America,2664.4,478.2,1350.1,11.3,824.7,17.9,50.7,0.4,31.0
+MEX,Mexico,USA,United States,North America,2641.2,1040.0,1552.8,0.0,48.4,39.4,58.8,0.0,1.8
+BGD,Bangladesh,IND,India,Asia,2443.0,0.0,244.1,177.0,2021.9,0.0,10.0,7.2,82.8
+AGO,Angola,COD,DR Congo,Africa,2410.1,537.8,977.9,27.3,867.2,22.3,40.6,1.1,36.0
+CHN,China,IND,India,Asia,2246.0,0.0,0.0,2246.0,0.0,0.0,0.0,100.0,0.0
+AFG,Afghanistan,PAK,Pakistan,Asia,2244.7,379.0,0.0,1648.7,217.0,16.9,0.0,73.4,9.7
+KAZ,Kazakhstan,UZB,Uzbekistan,Asia,2183.3,1419.1,36.5,196.0,531.7,65.0,1.7,9.0,24.4
+MLI,Mali,MRT,Mauritania,Africa,2168.9,1629.0,26.7,0.0,513.2,75.1,1.2,0.0,23.7
+COL,Colombia,VEN,Venezuela,South America,2111.1,279.4,778.6,477.1,576.1,13.2,36.9,22.6,27.3
+COD,DR Congo,ZMB,Zambia,Africa,2034.9,348.3,675.4,0.0,1011.3,17.1,33.2,0.0,49.7
+SDN,Sudan,SDS,South Sudan,Africa,1891.7,687.5,23.5,88.1,1092.5,36.3,1.2,4.7,57.8
+MMR,Myanmar,THA,Thailand,Asia,1832.2,0.0,139.2,791.7,901.3,0.0,7.6,43.2,49.2
+BRA,Brazil,PER,Peru,South America,1800.0,223.0,760.9,0.0,816.2,12.4,42.3,0.0,45.3
+LAO,Laos,VNM,Vietnam,Asia,1749.7,0.0,18.3,1301.7,429.7,0.0,1.0,74.4,24.6
+CHN,China,MMR,Myanmar,Asia,1699.4,0.0,68.3,1483.7,147.4,0.0,4.0,87.3,8.7
+COG,Republic of the Congo,GAB,Gabon,Africa,1672.0,0.0,186.8,28.9,1456.4,0.0,11.2,1.7,87.1
+RUS,Russia,UKR,Ukraine,Europe,1670.4,0.0,320.0,0.0,1350.4,0.0,19.2,0.0,80.8
+ARG,Argentina,PRY,Paraguay,South America,1644.7,0.0,1644.7,0.0,0.0,0.0,100.0,0.0,0.0
+NOR,Norway,SWE,Sweden,Europe,1644.1,133.5,178.5,722.6,609.5,8.1,10.9,44.0,37.1
+LAO,Laos,THA,Thailand,Asia,1616.4,0.0,924.2,420.6,271.7,0.0,57.2,26.0,16.8
+BWA,Botswana,ZAF,South Africa,Africa,1615.3,50.4,1205.5,0.0,359.4,3.1,74.6,0.0,22.3
+CMR,Cameroon,NGA,Nigeria,Africa,1604.9,60.2,104.0,657.1,783.6,3.7,6.5,40.9,48.8
+BRA,Brazil,VEN,Venezuela,South America,1601.9,78.1,0.0,896.4,627.5,4.9,0.0,56.0,39.2
+TKM,Turkmenistan,UZB,Uzbekistan,Asia,1596.0,177.2,272.6,158.3,987.8,11.1,17.1,9.9,61.9
+DZA,Algeria,MAR,Morocco,Africa,1550.6,234.0,0.0,326.4,990.2,15.1,0.0,21.1,63.9
+MRT,Mauritania,SAH,Western Sahara,Africa,1537.7,1406.9,0.0,0.0,130.7,91.5,0.0,0.0,8.5
+IDN,Indonesia,MYS,Malaysia,Asia,1523.6,0.0,15.8,701.1,806.7,0.0,1.0,46.0,52.9
+CHN,China,KAZ,Kazakhstan,Asia,1503.3,53.7,0.0,1310.1,139.5,3.6,0.0,87.1,9.3
+IND,India,NPL,Nepal,Asia,1483.9,0.0,54.0,303.2,1126.7,0.0,3.6,20.4,75.9
+COD,DR Congo,COG,Republic of the Congo,Africa,1468.2,51.0,1115.1,0.0,302.1,3.5,75.9,0.0,20.6
+MOZ,Mozambique,MWI,Malawi,Africa,1460.9,285.8,339.4,341.2,494.4,19.6,23.2,23.4,33.8
+CAF,Central African Republic,COD,DR Congo,Africa,1453.2,0.0,1446.5,0.0,6.7,0.0,99.5,0.0,0.5
+NER,Niger,NGA,Nigeria,Africa,1447.4,241.6,217.9,0.0,987.9,16.7,15.1,0.0,68.3
+BRA,Brazil,COL,Colombia,South America,1396.9,607.7,163.5,0.0,625.7,43.5,11.7,0.0,44.8
+BWA,Botswana,NAM,Namibia,Africa,1363.8,977.1,303.5,0.0,83.1,71.6,22.3,0.0,6.1
+MAR,Morocco,SAH,Western Sahara,Africa,1332.5,361.3,0.0,0.0,971.1,27.1,0.0,0.0,72.9
+AGO,Angola,NAM,Namibia,Africa,1331.6,668.6,663.0,0.0,0.0,50.2,49.8,0.0,0.0
+IRN,Iran,IRQ,Iraq,Asia,1317.6,58.3,204.5,619.4,435.6,4.4,15.5,47.0,33.1
+SDN,Sudan,TCD,Chad,Africa,1291.8,417.8,0.0,0.0,874.0,32.3,0.0,0.0,67.7
+ECU,Ecuador,PER,Peru,South America,1291.1,380.4,72.1,582.5,256.2,29.5,5.6,45.1,19.8
+EGY,Egypt,SDN,Sudan,Africa,1273.1,1211.4,16.9,0.0,44.8,95.2,1.3,0.0,3.5
+IND,India,MMR,Myanmar,Asia,1268.0,0.0,136.9,1089.5,41.6,0.0,10.8,85.9,3.3
+DZA,Algeria,MLI,Mali,Africa,1266.1,845.9,0.0,0.0,420.2,66.8,0.0,0.0,33.2
+FIN,Finland,RUS,Russia,Europe,1225.5,64.0,101.0,0.0,1060.5,5.2,8.2,0.0,86.5
+SAU,Saudi Arabia,YEM,Yemen,Asia,1222.8,661.3,0.0,291.1,270.4,54.1,0.0,23.8,22.1
+COL,Colombia,PER,Peru,South America,1220.4,141.1,1062.5,0.0,16.9,11.6,87.1,0.0,1.4
+BFA,Burkina Faso,MLI,Mali,Africa,1211.9,51.9,30.2,0.0,1129.8,4.3,2.5,0.0,93.2
+MOZ,Mozambique,ZWE,Zimbabwe,Africa,1190.7,204.2,33.2,490.5,462.7,17.2,2.8,41.2,38.9
+CAF,Central African Republic,TCD,Chad,Africa,1171.4,0.0,663.3,0.0,508.1,0.0,56.6,0.0,43.4
+AFG,Afghanistan,TJK,Tajikistan,Asia,1170.2,0.0,993.1,177.0,0.0,0.0,84.9,15.1,0.0
+NER,Niger,TCD,Chad,Africa,1165.1,916.1,0.0,0.0,249.0,78.6,0.0,0.0,21.4
+TJK,Tajikistan,UZB,Uzbekistan,Asia,1119.9,0.0,63.7,1047.6,8.7,0.0,5.7,93.5,0.8
+CHN,China,NPL,Nepal,Asia,1111.8,0.0,0.0,1111.8,0.0,0.0,0.0,100.0,0.0
+EGY,Egypt,LBY,Libya,Africa,1098.4,802.5,0.0,0.0,295.9,73.1,0.0,0.0,26.9
+BRA,Brazil,PRY,Paraguay,South America,1097.3,0.0,482.6,0.0,614.7,0.0,44.0,0.0,56.0
+BRA,Brazil,GUY,Guyana,South America,1079.6,0.0,0.0,221.6,858.0,0.0,0.0,20.5,79.5
+AGO,Angola,ZMB,Zambia,Africa,1079.5,569.4,254.4,0.0,255.8,52.7,23.6,0.0,23.7
+ESP,Spain,PRT,Portugal,Europe,1075.6,0.0,310.1,337.5,428.0,0.0,28.8,31.4,39.8
+LBY,Libya,TCD,Chad,Africa,1051.2,1051.2,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+KGZ,Kyrgyzstan,UZB,Uzbekistan,Asia,1049.3,0.0,0.0,1039.9,9.5,0.0,0.0,99.1,0.9
+CHN,China,VNM,Vietnam,Asia,1049.0,0.0,53.7,631.7,363.6,0.0,5.1,60.2,34.7
+CMR,Cameroon,TCD,Chad,Africa,1023.3,64.5,463.0,0.0,495.8,6.3,45.2,0.0,48.4
+KAZ,Kazakhstan,KGZ,Kyrgyzstan,Asia,1017.1,0.0,0.0,1017.1,0.0,0.0,0.0,100.0,0.0
+CHN,China,PRK,North Korea,Asia,1004.9,0.0,960.5,44.5,0.0,0.0,95.6,4.4,0.0
+ARG,Argentina,BRA,Brazil,South America,985.3,0.0,668.1,0.0,317.2,0.0,67.8,0.0,32.2
+KHM,Cambodia,VNM,Vietnam,Asia,966.7,0.0,0.0,167.0,799.7,0.0,0.0,17.3,82.7
+DZA,Algeria,LBY,Libya,Africa,963.9,406.2,0.0,21.2,536.5,42.1,0.0,2.2,55.7
+IRN,Iran,TKM,Turkmenistan,Asia,957.6,70.1,230.3,547.9,109.3,7.3,24.1,57.2,11.4
+BOL,Bolivia,PER,Peru,South America,953.6,259.7,111.8,448.4,133.6,27.2,11.7,47.0,14.0
+DZA,Algeria,NER,Niger,Africa,952.2,952.2,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+NAM,Namibia,ZAF,South Africa,Africa,940.4,406.6,533.8,0.0,0.0,43.2,56.8,0.0,0.0
+BLR,Belarus,RUS,Russia,Europe,919.6,0.0,66.4,0.0,853.1,0.0,7.2,0.0,92.8
+DZA,Algeria,TUN,Tunisia,Africa,916.0,293.8,0.0,325.2,297.0,32.1,0.0,35.5,32.4
+MDA,Moldova,UKR,Ukraine,Europe,898.0,0.0,194.4,0.0,703.5,0.0,21.7,0.0,78.3
+GTM,Guatemala,MEX,Mexico,North America,894.8,495.0,260.1,59.0,80.8,55.3,29.1,6.6,9.0
+ERI,Eritrea,ETH,Ethiopia,Africa,892.3,93.2,152.1,404.0,243.0,10.4,17.0,45.3,27.2
+ETH,Ethiopia,SDS,South Sudan,Africa,882.1,94.5,359.0,158.0,270.6,10.7,40.7,17.9,30.7
+AFG,Afghanistan,IRN,Iran,Asia,866.2,320.7,120.4,177.3,247.8,37.0,13.9,20.5,28.6
+BLR,Belarus,UKR,Ukraine,Europe,861.5,0.0,184.2,0.0,677.3,0.0,21.4,0.0,78.6
+ETH,Ethiopia,SOM,Somalia,Africa,857.5,745.0,0.0,0.0,112.6,86.9,0.0,0.0,13.1
+GIN,Guinea,MLI,Mali,Africa,855.9,0.0,66.8,30.8,758.3,0.0,7.8,3.6,88.6
+GHA,Ghana,TGO,Togo,Africa,851.7,0.0,166.2,93.3,592.2,0.0,19.5,11.0,69.5
+MLI,Mali,NER,Niger,Africa,842.5,472.1,0.0,0.0,370.4,56.0,0.0,0.0,44.0
+CHN,China,KGZ,Kyrgyzstan,Asia,838.7,0.0,0.0,838.7,0.0,0.0,0.0,100.0,0.0
+KGZ,Kyrgyzstan,TJK,Tajikistan,Asia,837.6,0.0,0.0,837.6,0.0,0.0,0.0,100.0,0.0
+BOL,Bolivia,CHL,Chile,South America,825.6,0.0,0.0,825.6,0.0,0.0,0.0,100.0,0.0
+IRN,Iran,PAK,Pakistan,Asia,816.6,67.9,0.0,397.4,351.3,8.3,0.0,48.7,43.0
+IRQ,Iraq,SAU,Saudi Arabia,Asia,812.7,795.3,0.0,0.0,17.4,97.9,0.0,0.0,2.1
+MWI,Malawi,ZMB,Zambia,Africa,802.7,0.0,0.0,246.9,555.8,0.0,0.0,30.8,69.2
+BIH,Bosnia and Herzegovina,HRV,Croatia,Europe,799.0,0.0,316.7,296.2,186.1,0.0,39.6,37.1,23.3
+BRA,Brazil,URY,Uruguay,South America,791.9,0.0,128.0,0.0,663.9,0.0,16.2,0.0,83.8
+ETH,Ethiopia,KEN,Kenya,Africa,788.4,119.6,45.1,205.7,418.0,15.2,5.7,26.1,53.0
+CAF,Central African Republic,CMR,Cameroon,Africa,788.3,101.1,176.0,0.0,511.2,12.8,22.3,0.0,64.9
+LSO,Lesotho,ZAF,South Africa,Africa,784.2,0.0,210.3,529.6,44.4,0.0,26.8,67.5,5.7
+SYR,Syria,TUR,Turkey,Asia,775.6,52.6,97.1,248.2,377.7,6.8,12.5,32.0,48.7
+BWA,Botswana,ZWE,Zimbabwe,Africa,772.1,0.0,0.0,0.0,772.1,0.0,0.0,0.0,100.0
+HND,Honduras,NIC,Nicaragua,North America,765.9,0.0,477.2,236.3,52.4,0.0,62.3,30.9,6.8
+KEN,Kenya,TZA,Tanzania,Africa,762.1,653.5,19.5,15.4,73.7,85.8,2.6,2.0,9.7
+ETH,Ethiopia,SOL,Somaliland,Africa,760.8,514.4,0.0,85.8,160.6,67.6,0.0,11.3,21.1
+ARM,Armenia,AZE,Azerbaijan,Asia,753.9,0.0,16.8,706.9,30.2,0.0,2.2,93.8,4.0
+IDN,Indonesia,PNG,Papua New Guinea,Oceania,748.6,657.8,90.8,0.0,0.0,87.9,12.1,0.0,0.0
+KEN,Kenya,UGA,Uganda,Africa,746.0,60.9,85.8,531.7,67.7,8.2,11.5,71.3,9.1
+BOL,Bolivia,PRY,Paraguay,South America,742.5,656.9,0.0,0.0,85.6,88.5,0.0,0.0,11.5
+BEN,Benin,NGA,Nigeria,Africa,735.7,0.0,0.0,0.0,735.7,0.0,0.0,0.0,100.0
+GMB,The Gambia,SEN,Senegal,Africa,731.0,210.6,0.0,0.0,520.4,28.8,0.0,0.0,71.2
+JOR,Jordan,SAU,Saudi Arabia,Asia,727.8,584.8,0.0,0.0,143.0,80.4,0.0,0.0,19.6
+COD,DR Congo,UGA,Uganda,Africa,727.2,53.3,237.1,408.8,27.9,7.3,32.6,56.2,3.8
+MOZ,Mozambique,TZA,Tanzania,Africa,724.8,50.7,674.1,0.0,0.0,7.0,93.0,0.0,0.0
+AFG,Afghanistan,TKM,Turkmenistan,Asia,722.9,0.0,83.9,249.3,389.8,0.0,11.6,34.5,53.9
+MRT,Mauritania,SEN,Senegal,Africa,720.8,0.0,720.8,0.0,0.0,0.0,100.0,0.0,0.0
+ZMB,Zambia,ZWE,Zimbabwe,Africa,716.4,65.3,651.1,0.0,0.0,9.1,90.9,0.0,0.0
+ARG,Argentina,BOL,Bolivia,South America,715.2,139.5,139.9,336.8,99.0,19.5,19.6,47.1,13.8
+ETH,Ethiopia,SDN,Sudan,Africa,712.7,0.0,0.0,441.3,271.4,0.0,0.0,61.9,38.1
+CAF,Central African Republic,SDS,South Sudan,Africa,708.6,0.0,0.0,0.0,708.6,0.0,0.0,0.0,100.0
+GEO,Georgia,RUS,Russia,Asia,705.1,0.0,0.0,703.1,2.0,0.0,0.0,99.7,0.3
+KEN,Kenya,SOM,Somalia,Africa,684.8,670.1,0.0,0.0,14.7,97.8,0.0,0.0,2.2
+FIN,Finland,NOR,Norway,Europe,678.3,0.0,81.3,35.7,561.3,0.0,12.0,5.3,82.8
+KHM,Cambodia,THA,Thailand,Asia,663.4,0.0,0.0,111.0,552.4,0.0,0.0,16.7,83.3
+OMN,Oman,SAU,Saudi Arabia,Asia,656.9,656.9,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+GUY,Guyana,SUR,Suriname,South America,656.1,0.0,608.2,0.0,47.9,0.0,92.7,0.0,7.3
+AUT,Austria,DEU,Germany,Europe,653.1,0.0,183.3,465.9,3.9,0.0,28.1,71.3,0.6
+GIN,Guinea,SLE,Sierra Leone,Africa,627.7,72.7,0.0,0.0,555.0,11.6,0.0,0.0,88.4
+GUY,Guyana,VEN,Venezuela,South America,622.3,105.2,109.9,92.9,314.3,16.9,17.7,14.9,50.5
+BEN,Benin,TGO,Togo,Africa,621.8,276.8,19.2,0.0,325.8,44.5,3.1,0.0,52.4
+BTN,Bhutan,IND,India,Asia,607.2,0.0,0.0,265.4,341.8,0.0,0.0,43.7,56.3
+CIV,Ivory Coast,GHA,Ghana,Africa,602.3,66.4,103.1,0.0,432.8,11.0,17.1,0.0,71.9
+BFA,Burkina Faso,NER,Niger,Africa,600.0,121.3,0.0,0.0,478.6,20.2,0.0,0.0,79.8
+CZE,Czechia,POL,Poland,Europe,599.3,0.0,43.4,331.3,224.5,0.0,7.3,55.3,37.5
+IRQ,Iraq,SYR,Syria,Asia,598.9,331.4,6.8,61.1,199.6,55.3,1.1,10.2,33.3
+COD,DR Congo,SDS,South Sudan,Africa,597.9,0.0,0.0,0.0,597.9,0.0,0.0,0.0,100.0
+CHE,Switzerland,ITA,Italy,Europe,596.0,0.0,18.1,577.9,0.0,0.0,3.0,97.0,0.0
+ERI,Eritrea,SDN,Sudan,Africa,593.3,96.9,0.0,245.4,251.0,16.3,0.0,41.4,42.3
+CZE,Czechia,DEU,Germany,Europe,587.6,0.0,0.0,274.5,313.1,0.0,0.0,46.7,53.3
+AZE,Azerbaijan,IRN,Iran,Asia,585.5,0.0,335.1,169.8,80.6,0.0,57.2,29.0,13.8
+BGR,Bulgaria,ROU,Romania,Europe,583.9,0.0,453.0,0.0,130.9,0.0,77.6,0.0,22.4
+ESP,Spain,FRA,France,Europe,567.7,0.0,0.0,500.1,67.6,0.0,0.0,88.1,11.9
+ARE,United Arab Emirates,OMN,Oman,Asia,567.3,0.0,0.0,272.3,295.0,0.0,0.0,48.0,52.0
+CIV,Ivory Coast,LBR,Liberia,Africa,565.5,0.0,143.7,0.0,421.8,0.0,25.4,0.0,74.6
+CIV,Ivory Coast,GIN,Guinea,Africa,561.7,0.0,0.0,0.0,561.7,0.0,0.0,0.0,100.0
+BFA,Burkina Faso,GHA,Ghana,Africa,537.1,127.4,209.3,0.0,200.5,23.7,39.0,0.0,37.3
+COL,Colombia,ECU,Ecuador,South America,520.9,0.0,159.0,223.7,138.3,0.0,30.5,42.9,26.6
+FIN,Finland,SWE,Sweden,Europe,520.6,0.0,518.0,0.0,2.6,0.0,99.5,0.0,0.5
+BRA,Brazil,FRA,France,South America,516.7,0.0,0.0,0.0,516.7,0.0,0.0,0.0,100.0
+ROU,Romania,UKR,Ukraine,Europe,515.8,0.0,253.0,160.6,102.2,0.0,49.1,31.1,19.8
+BFA,Burkina Faso,CIV,Ivory Coast,Africa,510.3,0.0,256.5,0.0,253.8,0.0,50.3,0.0,49.7
+CIV,Ivory Coast,MLI,Mali,Africa,495.9,0.0,51.3,0.0,444.6,0.0,10.3,0.0,89.7
+MOZ,Mozambique,ZAF,South Africa,Africa,494.3,254.4,0.0,0.0,239.9,51.5,0.0,0.0,48.5
+ARG,Argentina,URY,Uruguay,South America,491.0,0.0,491.0,0.0,0.0,0.0,100.0,0.0,0.0
+HUN,Hungary,SVK,Slovakia,Europe,483.8,0.0,249.3,0.0,234.5,0.0,51.5,0.0,48.5
+BLR,Belarus,LTU,Lithuania,Europe,481.9,0.0,0.0,0.0,481.9,0.0,0.0,0.0,100.0
+DEU,Germany,NLD,Netherlands,Europe,476.9,0.0,28.7,0.0,448.2,0.0,6.0,0.0,94.0
+COD,DR Congo,TZA,Tanzania,Africa,473.8,0.0,473.8,0.0,0.0,0.0,100.0,0.0,0.0
+CMR,Cameroon,COG,Republic of the Congo,Africa,471.8,109.2,328.2,0.0,34.4,23.1,69.6,0.0,7.3
+GIN,Guinea,LBR,Liberia,Africa,464.7,0.0,57.6,0.0,407.1,0.0,12.4,0.0,87.6
+BEL,Belgium,FRA,France,Europe,463.5,0.0,36.1,0.0,427.4,0.0,7.8,0.0,92.2
+DZA,Algeria,MRT,Mauritania,Africa,462.0,440.8,0.0,0.0,21.2,95.4,0.0,0.0,4.6
+CHE,Switzerland,FRA,France,Europe,460.3,0.0,122.6,337.6,0.0,0.0,26.6,73.4,0.0
+ROU,Romania,SRB,Serbia,Europe,458.8,0.0,225.3,0.0,233.5,0.0,49.1,0.0,50.9
+ARE,United Arab Emirates,SAU,Saudi Arabia,Asia,457.1,428.7,0.0,0.0,28.4,93.8,0.0,0.0,6.2
+MWI,Malawi,TZA,Tanzania,Africa,452.3,0.0,323.2,101.9,27.3,0.0,71.4,22.5,6.0
+LBY,Libya,TUN,Tunisia,Africa,449.8,67.5,0.0,29.1,353.2,15.0,0.0,6.5,78.5
+IRN,Iran,TUR,Turkey,Asia,440.5,0.0,0.0,440.5,0.0,0.0,0.0,100.0,0.0
+SDS,South Sudan,UGA,Uganda,Africa,436.0,70.4,0.0,131.9,233.7,16.1,0.0,30.3,53.6
+LTU,Lithuania,LVA,Latvia,Europe,435.3,0.0,36.0,0.0,399.3,0.0,8.3,0.0,91.7
+MYS,Malaysia,THA,Thailand,Asia,432.9,0.0,0.0,164.1,268.8,0.0,0.0,37.9,62.1
+KHM,Cambodia,LAO,Laos,Asia,431.9,0.0,40.2,154.9,236.8,0.0,9.3,35.9,54.8
+SWZ,Eswatini,ZAF,South Africa,Africa,428.4,54.4,0.0,204.1,170.0,12.7,0.0,47.6,39.7
+MDA,Moldova,ROU,Romania,Europe,426.5,0.0,426.5,0.0,0.0,0.0,100.0,0.0,0.0
+CAF,Central African Republic,COG,Republic of the Congo,Africa,426.4,76.1,0.0,0.0,350.2,17.9,0.0,0.0,82.1
+MOZ,Mozambique,ZMB,Zambia,Africa,422.3,232.9,84.5,50.6,54.3,55.2,20.0,12.0,12.9
+FRA,France,SUR,Suriname,South America,420.4,0.0,402.0,0.0,18.4,0.0,95.6,0.0,4.4
+HRV,Croatia,SVN,Slovenia,Europe,418.1,0.0,49.8,177.4,190.9,0.0,11.9,42.4,45.7
+BDI,Burundi,TZA,Tanzania,Africa,413.5,0.0,80.1,12.0,321.5,0.0,19.4,2.9,77.7
+POL,Poland,UKR,Ukraine,Europe,412.5,0.0,177.3,55.6,179.5,0.0,43.0,13.5,43.5
+DEU,Germany,POL,Poland,Europe,411.1,0.0,354.9,0.0,56.2,0.0,86.3,0.0,13.7
+POL,Poland,SVK,Slovakia,Europe,408.0,0.0,0.0,312.8,95.2,0.0,0.0,76.7,23.3
+BGR,Bulgaria,GRC,Greece,Europe,406.3,0.0,15.2,283.7,107.3,0.0,3.8,69.8,26.4
+CHN,China,TJK,Tajikistan,Asia,403.7,0.0,0.0,403.7,0.0,0.0,0.0,100.0,0.0
+FRA,France,ITA,Italy,Europe,403.1,0.0,0.0,372.6,30.5,0.0,0.0,92.4,7.6
+MLI,Mali,SEN,Senegal,Africa,401.0,0.0,0.0,0.0,401.0,0.0,0.0,0.0,100.0
+BRN,Brunei,MYS,Malaysia,Asia,399.1,0.0,61.8,190.3,147.1,0.0,15.5,47.7,36.8
+SOL,Somaliland,SOM,Somalia,Africa,391.3,391.3,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+CAF,Central African Republic,SDN,Sudan,Africa,387.2,74.7,0.0,0.0,312.6,19.3,0.0,0.0,80.7
+TZA,Tanzania,UGA,Uganda,Africa,386.5,344.3,42.2,0.0,0.0,89.1,10.9,0.0,0.0
+ISR,Israel,PSX,Palestine,Asia,384.2,0.0,0.0,195.2,189.0,0.0,0.0,50.8,49.2
+LBY,Libya,SDN,Sudan,Africa,380.9,380.9,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+KAZ,Kazakhstan,TKM,Turkmenistan,Asia,373.3,107.2,0.0,0.0,266.1,28.7,0.0,0.0,71.3
+DEU,Germany,FRA,France,Europe,373.2,0.0,202.1,0.0,171.1,0.0,54.2,0.0,45.8
+GBR,United Kingdom,IRL,Ireland,Europe,370.1,0.0,38.1,0.0,331.9,0.0,10.3,0.0,89.7
+BRA,Brazil,SUR,Suriname,South America,366.4,0.0,0.0,38.7,327.6,0.0,0.0,10.6,89.4
+BEL,Belgium,NLD,Netherlands,Europe,361.8,0.0,47.4,0.0,314.4,0.0,13.1,0.0,86.9
+CHN,China,LAO,Laos,Asia,361.5,0.0,0.0,198.5,163.1,0.0,0.0,54.9,45.1
+BTN,Bhutan,CHN,China,Asia,361.1,0.0,0.0,361.1,0.0,0.0,0.0,100.0,0.0
+HUN,Hungary,ROU,Romania,Europe,359.2,0.0,41.1,0.0,318.1,0.0,11.4,0.0,88.6
+CHN,China,PAK,Pakistan,Asia,351.4,0.0,0.0,351.4,0.0,0.0,0.0,100.0,0.0
+GIN,Guinea,GNB,Guinea-Bissau,Africa,351.0,0.0,49.3,0.0,301.8,0.0,14.0,0.0,86.0
+LBY,Libya,NER,Niger,Africa,346.4,332.6,0.0,0.0,13.8,96.0,0.0,0.0,4.0
+JOR,Jordan,SYR,Syria,Asia,342.5,218.5,15.0,60.7,48.3,63.8,4.4,17.7,14.1
+BLR,Belarus,POL,Poland,Europe,340.1,50.7,126.7,0.0,162.6,14.9,37.3,0.0,47.8
+GNB,Guinea-Bissau,SEN,Senegal,Africa,337.2,162.5,0.0,0.0,174.7,48.2,0.0,0.0,51.8
+AUT,Austria,CZE,Czechia,Europe,336.1,0.0,51.0,66.2,218.9,0.0,15.2,19.7,65.1
+AUT,Austria,ITA,Italy,Europe,329.7,0.0,36.7,293.0,0.0,0.0,11.1,88.9,0.0
+DJI,Djibouti,ETH,Ethiopia,Africa,328.6,0.0,28.7,104.4,195.5,0.0,8.7,31.8,59.5
+TZA,Tanzania,ZMB,Zambia,Africa,321.1,0.0,74.8,77.9,168.3,0.0,23.3,24.3,52.4
+HND,Honduras,SLV,El Salvador,North America,318.8,0.0,44.5,210.0,64.3,0.0,14.0,65.9,20.2
+GAB,Gabon,GNQ,Equatorial Guinea,Africa,308.4,280.0,0.0,13.6,14.8,90.8,0.0,4.4,4.8
+KEN,Kenya,SDS,South Sudan,Africa,306.8,140.1,0.0,99.3,67.4,45.7,0.0,32.4,22.0
+AZE,Azerbaijan,GEO,Georgia,Asia,302.6,0.0,112.4,98.2,91.9,0.0,37.2,32.5,30.4
+GIN,Guinea,SEN,Senegal,Africa,299.9,0.0,0.0,40.8,259.1,0.0,0.0,13.6,86.4
+BGR,Bulgaria,SRB,Serbia,Europe,298.7,0.0,18.5,227.8,52.4,0.0,6.2,76.3,17.5
+ISR,Israel,JOR,Jordan,Asia,293.8,0.0,191.8,94.3,7.7,0.0,65.3,32.1,2.6
+CRI,Costa Rica,NIC,Nicaragua,North America,293.4,73.8,122.5,0.0,97.1,25.2,41.7,0.0,33.1
+LBN,Lebanon,SYR,Syria,Asia,291.6,0.0,0.0,274.5,17.1,0.0,0.0,94.1,5.9
+IRQ,Iraq,TUR,Turkey,Asia,291.0,0.0,23.5,267.5,0.0,0.0,8.1,91.9,0.0
+BIH,Bosnia and Herzegovina,SRB,Serbia,Europe,290.6,0.0,205.4,85.2,0.0,0.0,70.7,29.3,0.0
+OMN,Oman,YEM,Yemen,Asia,290.2,282.4,0.0,0.0,7.8,97.3,0.0,0.0,2.7
+CRI,Costa Rica,PAN,Panama,North America,285.3,0.0,53.9,141.2,90.2,0.0,18.9,49.5,31.6
+BEN,Benin,BFA,Burkina Faso,Africa,284.7,0.0,206.7,0.0,78.0,0.0,72.6,0.0,27.4
+EST,Estonia,RUS,Russia,Europe,283.8,0.0,207.7,0.0,76.2,0.0,73.2,0.0,26.8
+AZE,Azerbaijan,RUS,Russia,Asia,277.7,0.0,38.5,225.1,14.1,0.0,13.9,81.1,5.1
+COL,Colombia,PAN,Panama,North America,272.7,0.0,0.0,107.1,165.6,0.0,0.0,39.3,60.7
+AUT,Austria,HUN,Hungary,Europe,272.2,0.0,19.2,0.0,253.0,0.0,7.0,0.0,93.0
+KOS,Kosovo,SRB,Serbia,Europe,270.4,0.0,27.0,243.5,0.0,0.0,10.0,90.0,0.0
+BDI,Burundi,RWA,Rwanda,Africa,263.4,0.0,0.0,100.9,162.5,0.0,0.0,38.3,61.7
+DOM,Dominican Republic,HTI,Haiti,North America,260.9,0.0,24.2,204.5,32.1,0.0,9.3,78.4,12.3
+ARM,Armenia,TUR,Turkey,Asia,258.8,0.0,198.7,60.0,0.0,0.0,76.8,23.2,0.0
+HRV,Croatia,HUN,Hungary,Europe,258.0,0.0,206.0,0.0,52.0,0.0,79.9,0.0,20.1
+EST,Estonia,LVA,Latvia,Europe,256.0,0.0,28.7,0.0,227.3,0.0,11.2,0.0,88.8
+CHE,Switzerland,DEU,Germany,Europe,253.7,0.0,162.8,37.8,53.1,0.0,64.2,14.9,20.9
+CMR,Cameroon,GAB,Gabon,Africa,251.1,52.5,103.0,0.0,95.6,20.9,41.0,0.0,38.1
+BLZ,Belize,GTM,Guatemala,North America,249.5,212.9,36.6,0.0,0.0,85.3,14.7,0.0,0.0
+LBR,Liberia,SLE,Sierra Leone,Africa,247.2,0.0,0.0,0.0,247.2,0.0,0.0,0.0,100.0
+AUT,Austria,SVN,Slovenia,Europe,242.1,0.0,41.1,170.3,30.7,0.0,17.0,70.3,12.7
+BLZ,Belize,MEX,Mexico,North America,241.4,0.0,231.8,0.0,9.6,0.0,96.0,0.0,4.0
+GEO,Georgia,TUR,Turkey,Asia,235.7,0.0,27.2,207.5,1.0,0.0,11.6,88.0,0.4
+BEN,Benin,NER,Niger,Africa,232.5,0.0,125.3,0.0,107.3,0.0,53.9,0.0,46.1
+LAO,Laos,MMR,Myanmar,Asia,229.1,0.0,229.1,0.0,0.0,0.0,100.0,0.0,0.0
+HRV,Croatia,SRB,Serbia,Europe,227.9,0.0,117.4,0.0,110.5,0.0,51.5,0.0,48.5
+NAM,Namibia,ZMB,Zambia,Africa,224.9,94.8,130.1,0.0,0.0,42.1,57.9,0.0,0.0
+GTM,Guatemala,HND,Honduras,North America,222.7,89.2,17.0,116.4,0.0,40.1,7.6,52.3,0.0
+KWT,Kuwait,SAU,Saudi Arabia,Asia,220.8,163.4,0.0,0.0,57.4,74.0,0.0,0.0,26.0
+ALB,Albania,GRC,Greece,Europe,220.7,0.0,17.0,185.1,18.6,0.0,7.7,83.9,8.4
+BDI,Burundi,COD,DR Congo,Africa,218.7,0.0,218.7,0.0,0.0,0.0,100.0,0.0,0.0
+LTU,Lithuania,RUS,Russia,Europe,218.7,0.0,154.6,0.0,64.1,0.0,70.7,0.0,29.3
+ZAF,South Africa,ZWE,Zimbabwe,Africa,218.3,0.0,218.3,0.0,0.0,0.0,100.0,0.0,0.0
+RWA,Rwanda,TZA,Tanzania,Africa,216.9,0.0,191.4,0.0,25.5,0.0,88.2,0.0,11.8
+GRC,Greece,MKD,North Macedonia,Europe,213.6,0.0,16.0,155.5,42.2,0.0,7.5,72.8,19.7
+LVA,Latvia,RUS,Russia,Europe,212.9,0.0,0.0,0.0,212.9,0.0,0.0,0.0,100.0
+IDN,Indonesia,TLS,Timor-Leste,Asia,208.4,0.0,0.0,133.2,75.2,0.0,0.0,63.9,36.1
+BIH,Bosnia and Herzegovina,MNE,Montenegro,Europe,206.5,0.0,43.7,162.8,0.0,0.0,21.2,78.8,0.0
+POL,Poland,RUS,Russia,Europe,206.2,199.7,1.8,0.0,4.7,96.9,0.9,0.0,2.3
+CZE,Czechia,SVK,Slovakia,Europe,205.8,0.0,38.2,114.3,53.3,0.0,18.6,55.5,25.9
+KOR,South Korea,PRK,North Korea,Asia,203.9,0.0,0.0,96.1,107.7,0.0,0.0,47.2,52.8
+EGY,Egypt,ISR,Israel,Asia,203.6,75.0,0.0,91.7,36.8,36.9,0.0,45.1,18.1
+COD,DR Congo,RWA,Rwanda,Africa,203.0,0.0,151.2,51.8,0.0,0.0,74.5,25.5,0.0
+IRQ,Iraq,KWT,Kuwait,Asia,200.8,0.0,143.2,0.0,57.6,0.0,71.3,0.0,28.7
+BGR,Bulgaria,TUR,Turkey,Europe,197.5,0.0,17.7,78.7,101.1,0.0,8.9,39.9,51.2
+ITA,Italy,SVN,Slovenia,Europe,183.5,0.0,0.0,131.0,52.4,0.0,0.0,71.4,28.6
+BGD,Bangladesh,MMR,Myanmar,Asia,183.0,0.0,0.0,28.2,154.8,0.0,0.0,15.4,84.6
+CMR,Cameroon,GNQ,Equatorial Guinea,Africa,180.4,150.4,0.0,0.0,30.0,83.4,0.0,0.0,16.6
+IRQ,Iraq,JOR,Jordan,Asia,180.4,100.6,0.0,0.0,79.8,55.7,0.0,0.0,44.3
+GRC,Greece,TUR,Turkey,Europe,180.0,0.0,172.7,0.0,7.4,0.0,95.9,0.0,4.1
+AGO,Angola,COG,Republic of the Congo,Africa,173.5,0.0,0.0,0.0,173.5,0.0,0.0,0.0,100.0
+NOR,Norway,RUS,Russia,Europe,165.1,0.0,87.3,0.0,77.8,0.0,52.9,0.0,47.1
+CHL,Chile,PER,Peru,South America,161.6,0.0,0.0,160.9,0.8,0.0,0.0,99.5,0.5
+ARM,Armenia,GEO,Georgia,Asia,159.7,0.0,0.0,159.7,0.0,0.0,0.0,100.0,0.0
+ALB,Albania,MNE,Montenegro,Europe,159.0,0.0,61.1,93.0,4.9,0.0,38.4,58.5,3.1
+ALB,Albania,MKD,North Macedonia,Europe,156.7,0.0,28.0,128.7,0.0,0.0,17.9,82.1,0.0
+GTM,Guatemala,SLV,El Salvador,North America,156.6,0.0,51.5,105.1,0.0,0.0,32.9,67.1,0.0
+BGR,Bulgaria,MKD,North Macedonia,Europe,142.0,0.0,0.0,142.0,0.0,0.0,0.0,100.0,0.0
+MNE,Montenegro,SRB,Serbia,Europe,140.0,0.0,0.0,140.0,0.0,0.0,0.0,100.0,0.0
+RWA,Rwanda,UGA,Uganda,Africa,139.0,0.0,0.0,82.4,56.6,0.0,0.0,59.3,40.7
+AUT,Austria,CHE,Switzerland,Europe,137.3,0.0,36.6,100.7,0.0,0.0,26.7,73.3,0.0
+AFG,Afghanistan,UZB,Uzbekistan,Asia,136.7,0.0,136.7,0.0,0.0,0.0,100.0,0.0,0.0
+BLR,Belarus,LVA,Latvia,Europe,135.9,0.0,22.8,0.0,113.1,0.0,16.8,0.0,83.2
+DEU,Germany,DNK,Denmark,Europe,134.0,0.0,78.1,0.0,55.9,0.0,58.3,0.0,41.7
+KOS,Kosovo,MKD,North Macedonia,Europe,132.7,0.0,0.0,132.7,0.0,0.0,0.0,100.0,0.0
+HUN,Hungary,SRB,Serbia,Europe,131.7,0.0,0.0,0.0,131.7,0.0,0.0,0.0,100.0
+BFA,Burkina Faso,TGO,Togo,Africa,128.6,73.7,0.0,0.0,54.9,57.3,0.0,0.0,42.7
+BEL,Belgium,DEU,Germany,Europe,115.3,0.0,0.0,21.8,93.6,0.0,0.0,18.9,81.1
+DJI,Djibouti,ERI,Eritrea,Africa,111.7,0.0,0.0,62.1,49.6,0.0,0.0,55.6,44.4
+JOR,Jordan,PSX,Palestine,Asia,111.6,0.0,111.6,0.0,0.0,0.0,100.0,0.0,0.0
+BEL,Belgium,LUX,Luxembourg,Europe,110.0,0.0,0.0,0.0,110.0,0.0,0.0,0.0,100.0
+MOZ,Mozambique,SWZ,Eswatini,Africa,108.2,0.0,0.0,0.0,108.2,0.0,0.0,0.0,100.0
+DEU,Germany,LUX,Luxembourg,Europe,102.5,0.0,72.7,0.0,29.8,0.0,70.9,0.0,29.1
+CHN,China,KAS,Siachen Glacier,Asia,101.9,0.0,0.0,101.9,0.0,0.0,0.0,100.0,0.0
+ISR,Israel,LBN,Lebanon,Asia,98.0,0.0,0.0,41.2,56.7,0.0,0.0,42.1,57.9
+ALB,Albania,KOS,Kosovo,Europe,97.7,0.0,0.0,97.7,0.0,0.0,0.0,100.0,0.0
+HUN,Hungary,UKR,Ukraine,Europe,97.7,0.0,47.5,0.0,50.2,0.0,48.6,0.0,51.4
+ISR,Israel,SYR,Syria,Asia,89.4,0.0,0.0,89.4,0.0,0.0,0.0,100.0,0.0
+MYS,Malaysia,SGP,Singapore,Asia,87.7,0.0,87.7,0.0,0.0,0.0,100.0,0.0,0.0
+LTU,Lithuania,POL,Poland,Europe,87.5,0.0,0.0,0.0,87.5,0.0,0.0,0.0,100.0
+SVK,Slovakia,UKR,Ukraine,Europe,87.0,0.0,0.0,51.1,36.0,0.0,0.0,58.7,41.3
+NGA,Nigeria,TCD,Chad,Africa,85.2,85.2,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+AFG,Afghanistan,CHN,China,Asia,84.1,0.0,0.0,84.1,0.0,0.0,0.0,100.0,0.0
+AUT,Austria,SVK,Slovakia,Europe,81.9,0.0,64.2,0.0,17.7,0.0,78.4,0.0,21.6
+IND,India,KAS,Siachen Glacier,Asia,80.6,80.6,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+MKD,North Macedonia,SRB,Serbia,Europe,74.7,0.0,0.0,74.7,0.0,0.0,0.0,100.0,0.0
+HUN,Hungary,SVN,Slovenia,Europe,67.9,0.0,0.0,0.0,67.9,0.0,0.0,0.0,100.0
+KAS,Siachen Glacier,PAK,Pakistan,Asia,64.4,64.4,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+DJI,Djibouti,SOL,Somaliland,Africa,64.2,64.2,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+KOS,Kosovo,MNE,Montenegro,Europe,58.5,0.0,0.0,58.5,0.0,0.0,0.0,100.0,0.0
+QAT,Qatar,SAU,Saudi Arabia,Asia,53.3,0.0,0.0,0.0,53.3,0.0,0.0,0.0,100.0
+FRA,France,LUX,Luxembourg,Europe,50.8,0.0,0.0,0.0,50.8,0.0,0.0,0.0,100.0
+AND,Andorra,ESP,Spain,Europe,50.7,0.0,0.0,50.7,0.0,0.0,0.0,100.0,0.0
+AND,Andorra,FRA,France,Europe,45.9,0.0,0.0,45.9,0.0,0.0,0.0,100.0,0.0
+CYN,Northern Cyprus,ESB,Dhekelia (UK base),Asia,44.6,0.0,0.0,0.0,44.6,0.0,0.0,0.0,100.0
+CYP,Cyprus,ESB,Dhekelia (UK base),Asia,44.4,0.0,0.0,0.0,44.4,0.0,0.0,0.0,100.0
+CYP,Cyprus,WSB,Akrotiri (UK base),Asia,44.0,0.0,0.0,0.0,44.0,0.0,0.0,0.0,100.0
+DZA,Algeria,SAH,Western Sahara,Africa,41.7,0.0,0.0,0.0,41.7,0.0,0.0,0.0,100.0
+ARM,Armenia,IRN,Iran,Asia,35.4,0.0,35.4,0.0,0.0,0.0,100.0,0.0,0.0
+CHN,China,MAC,Macau,Asia,33.6,0.0,33.6,0.0,0.0,0.0,100.0,0.0,0.0
+CHE,Switzerland,LIE,Liechtenstein,Europe,32.1,0.0,27.7,4.5,0.0,0.0,86.1,13.9,0.0
+PRK,North Korea,RUS,Russia,Asia,31.5,0.0,31.5,0.0,0.0,0.0,100.0,0.0,0.0
+ITA,Italy,SMR,San Marino,Europe,29.3,0.0,0.0,0.0,29.3,0.0,0.0,0.0,100.0
+AUT,Austria,LIE,Liechtenstein,Europe,27.1,0.0,0.0,27.1,0.0,0.0,0.0,100.0,0.0
+ESP,Spain,MAR,Morocco,Africa,21.5,0.0,0.0,0.0,21.5,0.0,0.0,0.0,100.0
+CHN,China,HKG,Hong Kong,Asia,18.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,100.0
+HRV,Croatia,MNE,Montenegro,Europe,17.9,0.0,0.0,0.0,17.9,0.0,0.0,0.0,100.0
+EGY,Egypt,PSX,Palestine,Asia,12.3,0.0,0.0,0.0,12.3,0.0,0.0,0.0,100.0
+MAF,Saint Martin (France),SXM,Sint Maarten (Netherlands),North America,10.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,100.0
+FRA,France,MCO,Monaco,Europe,9.5,0.0,0.0,0.0,9.5,0.0,0.0,0.0,100.0
+AZE,Azerbaijan,TUR,Turkey,Asia,7.6,0.0,0.0,0.0,7.6,0.0,0.0,0.0,100.0
+ESP,Spain,GIB,Gibraltar,Europe,1.8,0.0,0.0,0.0,1.8,0.0,0.0,0.0,100.0
+ITA,Italy,VAT,Vatican City,Europe,0.4,0.0,0.0,0.0,0.4,0.0,0.0,0.0,100.0

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Where the Borders Are Straight</title>
+<meta name="description" content="Every international land border in the world classified as ruler-straight, river or lake, mountains or other: {{world.straight_pct|f1}}% of the world's land border length is straight. Who drew the longest straight lines, and when.">
+<meta property="og:title" content="Where the borders are straight">
+<meta property="og:description" content="{{world.straight_pct|f1}}% of the world's land border length is ruler-straight. Africa has {{africa.share_of_world_straight|pc}} of it, but North America is straighter by share. Who drew the lines, and when.">
+<meta property="og:image" content="https://maps.tristanhotham.com/straight-borders/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/straight-borders/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Surveyor's paper: cream, ink, boundary red, river blue, mountain ochre. */
+:root{
+  --bg:#F7F3EA; --panel:#EEE8DA; --fg:#1E2430; --muted:#646875; --rule:#E2DACA; --card:#FFFCF5; --border:#D0C6B3;
+  --hot:#C2362B; --cool:#2F6FB0; --gold:#A3681A; --grey:#8F8A80; --land:#E9E2D2; --sea:#F2EFE8;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151820; --panel:#1F232C; --fg:#ECE8E0; --muted:#A3A6B1; --rule:#343944; --card:#1B1F27; --border:#454B57;
+  --hot:#E0645A; --cool:#6A9DD6; --gold:#C98E44; --grey:#9A958C; --land:#2A2E37; --sea:#181B22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151820; --panel:#1F232C; --fg:#ECE8E0; --muted:#A3A6B1; --rule:#343944; --card:#1B1F27; --border:#454B57;
+  --hot:#E0645A; --cool:#6A9DD6; --gold:#C98E44; --grey:#9A958C; --land:#2A2E37; --sea:#181B22; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,92px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)}
+.mark{width:clamp(84px,17vw,140px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:56ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--cool)} .stats b.g{color:var(--gold)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}.lab.t{font-size:10px}.lab.w{fill:#fff;font-weight:500}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:300px;z-index:100001;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);max-height:660px;overflow:auto}
+@media (max-width:900px){.side{max-height:none}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 23px/1.12 var(--display);margin:2px 0 6px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side table{width:100%;border-collapse:collapse;margin:4px 0 6px}
+.side td{padding:4px 4px 4px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+.side td.num{text-align:right;white-space:nowrap}
+.side .why{background:var(--panel);border-left:4px solid var(--hot);padding:7px 9px;margin:8px 0;font-size:12px}
+.side .why.low{border-left-color:var(--grey)}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.back{font:400 12px var(--mono);background:none;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;margin-bottom:6px}
+.sw{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:3px}
+.bar4{display:flex;height:12px;border-radius:2px;overflow:hidden;margin:6px 0 4px;gap:2px}
+.bar4 i{display:block;height:100%}
+.lmap{height:640px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:600px){.lmap{height:min(62vh,470px)}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg)}
+.leaflet-popup-content{font:400 12.5px/1.45 var(--mono);margin:12px 14px;min-width:220px}
+.leaflet-popup-content b.t{font:800 16px/1.15 var(--display);display:block;margin-bottom:4px}
+.leaflet-popup-content .k{color:var(--muted)}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.lyrBtn{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:250px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(70vh,520px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:2px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.cityL{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 2px var(--bg);pointer-events:none}
+.cityL i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--fg);margin-right:4px;vertical-align:1px}
+.segN{font:600 10px/16px var(--mono);color:#fff;background:var(--hot);border-radius:50%;text-align:center;box-shadow:0 0 0 1.5px var(--bg);cursor:pointer}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--fg)}
+.legend{display:flex;gap:6px 16px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:22px;height:4px;margin-right:7px;border-radius:2px}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{border-collapse:collapse;width:100%;font:400 12px/1.4 var(--mono)}
+table.data th{text-align:left;font-weight:500;color:var(--muted);border-bottom:1px solid var(--border);padding:6px 6px 6px 0;white-space:nowrap}
+table.data td{border-bottom:1px solid var(--rule);padding:6px 6px 6px 0;vertical-align:top}
+table.data td.num{text-align:right;white-space:nowrap}
+.conf{display:inline-block;font-size:10px;padding:1px 5px;border-radius:2px;border:1px solid var(--border);color:var(--muted)}
+.conf.low{border-style:dashed}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Geography</span><span>Every land border in the world</span></div>
+<header class="hero">
+  <h1>Where the borders are <span class="a">straight</span></h1>
+  <svg class="mark" viewBox="0 0 150 112" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Every international land border in the world, measured and sorted: the ruler-straight lines, the rivers, the mountains and the rest. Then the straightest lines of all, and the treaties, years and powers behind them.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Natural Earth; ETOPO5 (NOAA); treaty table compiled from published sources</div>
+
+<div class="stats">
+  <div><b class="h">{{world.straight_pct|f1}}%</b><span>of the world's {{world.km|int}} km of land borders is ruler-straight</span></div>
+  <div><b class="c">{{cont.North_America.straight_pct|pc}}</b><span>of North America's border length is straight: more than any other continent with more than one border</span></div>
+  <div><b class="g">{{africa.share_of_world_straight|pc}}</b><span>of all the world's straight border is in Africa, which has {{cont.Africa.straight_pct|pc}} of its own borders straight</span></div>
+  <div><b>{{ex.us49.km|int}} km</b><span>the longest straight line: the 49th parallel between Canada and the United States, 1818 and 1846</span></div>
+</div>
+
+<p class="lede">Look at a map of Africa, or Arabia, or the American West, and the lines that jump out are the straight ones: borders that run for hundreds of kilometres without a bend, across desert, savanna and lake, along a line of latitude or between two points someone chose in a distant capital. Africa's borders are often said to be the straightest in the world, the mark of Europeans dividing a continent with a ruler. I wanted to know how much of the world's border really is straight, where it is, and who drew the longest lines.</p>
+<p>So I took every international land border in Natural Earth's detailed world map, {{world.km|int}} km of line between {{world.n_countries|int}} countries and territories, and sorted each stretch into one of four kinds: <b style="color:var(--hot)">ruler-straight</b> (a parallel, a meridian or another straight line, for at least 50 km), <b style="color:var(--cool)">river or lake</b>, <b style="color:var(--gold)">through mountains</b>, and <b style="color:var(--grey)">other</b>. For the {{top_n|int}} longest straight lines I looked up the treaty that drew them. Click any border on the map.</p>
+
+<h2><span class="n">01 · The map</span>Every land border, by kind</h2>
+<div class="bleed" id="atlas">
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a country, a border or a city" aria-label="Search a country, a border or a city" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+</div>
+<div class="controls">
+  <div class="scrollrow" id="jumpRow"><span class="ctl-l">Jump to</span></div>
+</div>
+<div class="mapgrid">
+  <div><div id="map" class="lmap" role="application" aria-label="World map of land borders coloured by kind"></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+<p class="src">Borders: Natural Earth 1:10 million admin-0 boundary lines (public domain). Classes are measured, not official: see How I did this. Numbered circles mark the {{top_n|int}} longest straight segments (more appear as you zoom in); tap one for its treaty. Disputed and indefinite lines are included as Natural Earth draws them, which is not a judgement on any claim.</p>
+</div>
+
+<h2><span class="n">02 · The share</span>How much of the world's border is straight?</h2>
+<p>Of {{world.km|int}} km of land border, {{world.straight|int}} km ({{world.straight_pct|f1}}%) runs in straight segments of at least 50 km. Rivers and lakes carry {{world.water_pct|f1}}%, mountains {{world.mountain_pct|f1}}%, and the remaining {{world.other_pct|f1}}% wanders across lowland, following old estates, villages, ethnic lines, survey marks or compromise. Of the straight length, {{straight.parallel_pct_of_straight|pc}} follows a parallel of latitude, {{straight.meridian_pct_of_straight|pc}} a meridian, and {{straight.line_pct_of_straight|pc}} is a straight line between two chosen points.</p>
+<div class="figure"><p class="fig-h">Share of each continent's land border length, by kind</p><p class="fig-sub">A border counts once, in the continent where it lies. Hover for kilometres.</p><div class="chart" id="contChart"></div></div>
+<p>The continents could hardly be more different. Europe's borders are almost never straight: {{cont.Europe.straight_pct|f1}}% of their length, in five short pieces, the longest being the line across old East Prussia that has divided Poland and Russia's Kaliningrad since 1945. Asia's are dominated by mountains ({{cont.Asia.mountain_pct|pc}}), the Himalaya, Pamirs, Tian Shan and Altai. South America's follow rivers and the Andes. Oceania's only land border, across New Guinea, is {{cont.Oceania.straight_pct|pc}} straight, the 141st meridian, but one border is not much of a continent.</p>
+
+<h2><span class="n">03 · The claim</span>Are Africa's borders the straightest?</h2>
+<p>Partly, and less than you might think. Africa has by far the most straight border of any continent: {{cont.Africa.straight|int}} km, {{africa.share_of_world_straight|pc}} of the world's total. Of the five continents with more than one border, it also has the largest share of borders that are mostly straight: {{africa.n_mostly_straight|int}} of its {{africa.n_borders|int}} borders ({{africa.mostly_straight_pct|pc}}) are at least half straight, against {{cont.North_America.mostly_straight_pct|pc}} in North America and {{cont.Asia.mostly_straight_pct|pc}} in Asia. But measured by share of length, Africa's borders are {{cont.Africa.straight_pct|f1}}% straight, and North America's are {{cont.North_America.straight_pct|f1}}%.</p>
+<p>North America's figure rests on one huge, very straight border: Canada and the United States, {{ex.us_ca_pct|pc}} straight over {{ex.us_ca_total|int}} km, with the 49th parallel and the 141st meridian. It holds {{africa.na_usca_share_of_na_straight|pc}} of the continent's straight length. Take it out and North America drops to {{africa.na_without_usca_pct|f1}}%, just below Africa. Most of Africa's borders, meanwhile, are not straight at all: {{cont.Africa.other_pct|pc}} of their length is irregular, often following old local or colonial survey lines, and {{cont.Africa.water_pct|pc}} follows rivers such as the Ubangi, Congo, Limpopo and Orange.</p>
+<div class="figure"><p class="fig-h">Share straight, by continent, under twelve different definitions</p><p class="fig-sub">Tolerance (how far a vertex may stray from the line) and shortest segment counted. The ringed settings are the ones used throughout. Oceania (one border) left out. Hover for values.</p><div class="chart" id="sensChart"></div></div>
+<p>The ranking does not depend on my settings. Under all {{africa.n_settings|int}} combinations of tolerance and minimum length I tried, North America comes first among the five continents with more than one border and Africa second. A figure often quoted, that 44% of Africa's borders follow parallels and meridians, is usually traced to a 1961 study of tropical Africa by K. M. Barbour; here, parallels and meridians make up {{cont.Africa.astro_pct|f1}}% of Africa's border length. That study used different maps and categories, so the two numbers are not strictly comparable, but on today's borders the claim looks too high.</p>
+<p class="pull">Africa has more straight border than anywhere else, {{africa.share_of_world_straight|pc}} of the world's. But kilometre for kilometre, North America is straighter.</p>
+
+<h2><span class="n">04 · Who drew them</span>The {{top_n|int}} longest straight lines</h2>
+<p>The longest straight segment on Earth's land borders is the 49th parallel between Canada and the United States: {{ex.us49.km|int}} km from Lake of the Woods to the Strait of Georgia, set by Britain and the United States in the Convention of 1818 and carried west to the Pacific by the Oregon Treaty of 1846. Second is the 141st meridian between Alaska and Canada's Yukon ({{ex.us141.km|int}} km), agreed by Russia and Britain in 1825. Then come the Sahara's lines: Mali and Mauritania ({{ex.ml.km|int}} km), Libya and Chad ({{ex.ly.km|int}} km), and Egypt and Libya's 25th meridian ({{ex.eg25.km|int}} km). Egypt and Sudan's 22nd parallel, from the Anglo-Egyptian Condominium Agreement of 1899, adds up to {{ex.eg22_total|int}} km in three pieces.</p>
+<div class="figure"><p class="fig-h">The {{top_n|int}} longest straight segments, with the year the line was drawn</p><p class="fig-sub">Coloured by period; pale bars are lines whose origin I could not pin down. Click a bar to see it on the map.</p><div class="chart" id="topChart"></div></div>
+<p>{{top_africa_n|int}} of the {{top_n|int}} are in Africa. The United Kingdom was a party to {{top_powers.United Kingdom|int}} of the {{top_n|int}} lines, France to {{top_powers.France|int}} and Germany to {{top_powers.Germany|int}}. But not all were drawn by European powers dividing someone else's land: the Arabian lines were agreed by Saudi Arabia, Oman, Yemen and the Emirates themselves between 1974 and 2000, and the Gadsden line of 1853 and the Tierra del Fuego meridian of 1881 by American states. Several of the Saharan lines were never treaties at all, but boundaries France drew between its own colonies, which became international borders at independence.</p>
+<details><summary>Show the table: treaty, year, powers and how sure I am</summary>
+<div class="tbl"><table class="data" id="topTable"></table></div>
+<p class="src">Sources: Brownlie (1979) African Boundaries; Biger (1995) The Encyclopedia of International Boundaries; the US State Department's International Boundary Studies; the International Court of Justice (1994); the International Boundary Commission and the International Boundary and Water Commission; Wikipedia's border articles. "High": a well-known treaty set this line. "Medium": the treaty is known, but which instrument drew this exact stretch, or when, is less certain. "Low": an administrative line or an origin I could not pin down. Corrections welcome. Full table in <a href="data/straight_segments.csv">data/straight_segments.csv</a>.</p>
+</details>
+
+<h2><span class="n">05 · When</span>A ruler in the age of empire</h2>
+<p>The years cluster. Of the {{top_years.n_dated|int}} longest straight lines with a date, {{top_years.n_1880_1914|int}} were drawn between 1880 and 1914, the years of the Scramble for Africa, and they make up {{top_years.pct_1880_1914_km|pc}} of the length of the {{top_n|int}}. {{top_years.n_before_1880|int}} are older, all in North America, from 1783 on, and {{top_years.n_after_1945|int}} are recent: three in Arabia and the provisional line between Ethiopia and Somalia. The median year is {{top_years.median|yr}}.</p>
+<div class="figure"><p class="fig-h">Year each long straight line was drawn, against its length</p><p class="fig-sub">Hollow circles: origin uncertain. Hover for the treaty.</p><div class="chart" id="timeChart"></div></div>
+<p>Straight lines were the natural tool for powers that claimed land they had not surveyed. A parallel or a meridian can be agreed in a European capital from a coarse map, and marked on the ground later, if ever. Many of these lines cross desert where few people lived, or were thought to. They were not empty: the Saharan lines cut through the grazing lands of Tuareg, Moors and Tubu, and the Kenya and Tanzania line through Maasai country.</p>
+
+<h2><span class="n">06 · Rivers and mountains</span>The borders that follow the land</h2>
+<p>Water is the commonest natural border: {{world.water_pct|f1}}% of the world's length follows a river or lake. China and Russia's border is {{water_examples.0.pct|pc}} river (the Amur and the Ussuri), and Argentina and Paraguay's is all river. Mountains carry {{world.mountain_pct|f1}}%: Argentina and Chile share {{mountain_examples.0.km|int}} km through the Andes, and China and India's whole border runs through the Himalaya and Karakoram.</p>
+<div class="figure"><p class="fig-h">The borders with the most river and the most mountain</p><p class="fig-sub">Dark: length of that kind; pale: the rest of the border. Hover for values.</p><div class="chart" id="rmChart"></div></div>
+<p>Two cautions. Natural Earth's world map of rivers misses many small ones, so some borders that follow a stream show up here as other; the river share is a lower bound. And the mountain class says only that the border runs through mountainous terrain: most such borders follow crests or watersheds, but a world elevation model with 9 km cells cannot show which. As a check, {{ranges.mountain_in_range_pct|pc}} of the length I class as mountains lies inside one of Natural Earth's named mountain ranges, against {{ranges.other_in_range_pct|pc}} of the other class.</p>
+
+<h2><span class="n">07 · The map's own ruler</span>How simplification makes borders straight</h2>
+<p>Any measure of straightness depends on the map. Natural Earth draws the world at three scales. On the most detailed, 1:10 million, used here, {{scale.10m.straight_pct|f1}}% of border length counts as straight. On the 1:50 million map it is {{scale.50m.straight_pct|f1}}%, and on the 1:110 million map {{scale.110m.straight_pct|f1}}%: simplify a winding border enough and it becomes a chain of straight lines. Even at 1:10 million some small wiggles are smoothed away, so the true straight share on the ground is, if anything, a little lower than mine.</p>
+<div class="figure"><p class="fig-h">Share of world border length counted as straight, at three map scales</p><p class="fig-sub">Same method and settings (1 km tolerance, 50 km minimum) on each.</p><div class="chart" id="scaleChart"></div></div>
+
+<h2><span class="n">08 · Countries</span>The straightest countries</h2>
+<p>Among countries with at least 1,000 km of land border, the straightest is {{countries.top_straight_pct.0.name|raw}} ({{countries.top_straight_pct.0.pct|pc}}), then {{countries.top_straight_pct.1.name|raw}} ({{countries.top_straight_pct.1.pct|pc}}), {{countries.top_straight_pct.2.name|raw}} ({{countries.top_straight_pct.2.pct|pc}}; Natural Earth draws it apart from Somalia) and {{countries.top_straight_pct.3.name|raw}} ({{countries.top_straight_pct.3.pct|pc}}). The United States' land borders are {{countries.USA.straight_pct|pc}} straight. {{countries.n_no_straight|int}} of {{countries.n|int}} countries and territories have no straight border at all, among them France, Germany and the United Kingdom. Search any country on the map for its own figures.</p>
+<div class="tbl"><table class="data" id="cyTable"></table></div>
+
+<h2><span class="n">09 · How I did this</span>Methods and caveats</h2>
+<p><b>Borders.</b> Natural Earth's 1:10 million admin-0 land boundary lines (version {{meta.ne_version|raw}}), keeping international boundaries and the disputed, indefinite and line-of-control lines Natural Earth draws, and leaving out UN buffer zones, demilitarised zones and leased bases: {{world.km|int}} km in {{world.n_borders|int}} borders. Disputed, indefinite and ceasefire lines are {{world.non_intl_pct|f1}}% of the length; without them the straight share is {{world.intl_only_straight_pct|f1}}%.</p>
+<p><b>Straight.</b> Walking along each border, a stretch counts as straight if every point on it lies within 1 km of a single great circle or a single line of constant compass bearing (which includes every parallel), and it runs for at least 50 km without doubling back. I tried twelve combinations of tolerance (0.25 to 2 km) and minimum length (25 to 100 km): with a 50 km minimum the world figure ranges from {{sens_summary.lmin50_min|f1}}% to {{sens_summary.lmin50_max|f1}}%, and it only balloons, to {{sens_summary.all_max|f1}}%, when short, loose stretches of 25 km within 2 km are allowed, which takes in plenty of ordinary wiggly border. Lines Natural Earth marks as running through water count as water even where drawn straight; the straight courses through the Great Lakes are not marked so, and count as straight.</p>
+<p><b>Rivers and lakes.</b> A stretch follows water if it lies within 3 km of a Natural Earth river centre line or lake shore, or inside a lake, for at least 15 km. Varying the distance (1.5 to 5 km) and minimum length (10 to 30 km) gives {{sens_summary.water_min|f1}}% to {{sens_summary.water_max|f1}}%.</p>
+<p><b>Mountains.</b> From the ETOPO5 world elevation grid (5 arc-minutes, about 9 km): above 2,500 m, or above 300 m with at least 300 m of relief within about 18 km, a simplified version of the UNEP-WCMC mountain definition; at least 20 km at a time. I first tried to detect crests directly (border higher than both sides), but at this resolution it found a crest on only a small part of even the Andes border, so I use terrain instead. Other thresholds give {{sens_summary.mountain_min|f1}}% to {{sens_summary.mountain_max|f1}}%. The order of priority is straight, then water, then mountains.</p>
+<p><b>Who drew them.</b> The treaty table is hand-compiled from standard references, not a database, and dates are the year a line was first set in roughly its present form. I mark {{top_years.n_low|int}} of the {{top_n|int}} as low confidence (the provisional line between Ethiopia and Somalia, whose date is uncertain) and {{top_years.n_medium|int}} as medium; the colonial administrative and Soviet lines were checked against the English Wikipedia articles on each border, cited in the data. Continents follow Natural Earth, with borders between continents placed where they lie (Russia's Asian borders in Asia, Sinai in Asia, New Guinea in Oceania).</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Natural Earth, admin-0 boundary lines (1:10m, 1:50m, 1:110m), countries, rivers and lake centre lines (with the Europe and North America supplements), lakes, physical regions and populated places, version {{meta.ne_version|raw}}, https://www.naturalearthdata.com/ via https://github.com/nvkelso/natural-earth-vector. Public domain.</li>
+<li>ETOPO5 5 arc-minute global relief, NOAA National Geophysical Data Center (1988), as distributed with the Ferret datasets. Public domain.</li>
+<li>Treaty table: Brownlie, I. (1979) African Boundaries: A Legal and Diplomatic Encyclopaedia; Biger, G. (1995) The Encyclopedia of International Boundaries; US Department of State, International Boundary Study series; International Court of Justice (1994) Territorial Dispute (Libya/Chad); International Boundary Commission; International Boundary and Water Commission; English Wikipedia border articles (CC BY-SA 4.0, facts only).</li>
+<li>Mountain definition simplified from Kapos, V. et al. (2000), UNEP-WCMC. Barbour, K. M. (1961) on tropical Africa's boundaries, as commonly cited.</li>
+<li>Base map tiles and hill shading © Esri.</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.23847974">Read the paper</a><a href="https://github.com/Tristan-Hotham/straight-borders">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/straight-borders/">Blog post</a><a href="data/straight_segments.csv">Straight segments (CSV)</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Where the borders are straight: ruler lines, rivers and mountains on every land border, and who drew the longest straight lines. Zenodo. <a href="https://doi.org/10.5281/zenodo.23847974">10.5281/zenodo.23847974</a></p>
+<p>Licence: code MIT; text, figures and derived data CC BY 4.0. Natural Earth and ETOPO5 are public domain.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<button class="btn theme" id="theme" aria-label="Switch light or dark">◐</button>
+<div class="tip" id="tip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = /*RESULTS*/;
+const CITIES = /*CITIES*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const f1 = n => (+n).toFixed(1);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", e => { if (!e.target.closest("svg")) hideTip(); });
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const small = () => innerWidth < 900;
+const tipAt = (e, h) => { const t = e.touches ? e.touches[0] : e; showTip(h, t.clientX, t.clientY); };
+const hover = (node, h) => { const m = e => tipAt(e, h); node.addEventListener("mousemove", m); node.addEventListener("touchstart", m, { passive: true }); node.addEventListener("mouseleave", hideTip); };
+const CL = ["straight", "water", "mountain", "other"];
+const CN = { straight: "Ruler-straight", water: "River or lake", mountain: "Through mountains", other: "Other or irregular" };
+const CV = { straight: "--hot", water: "--cool", mountain: "--gold", other: "--grey" };
+const col = k => css(CV[k]);
+const PER = [[0, 1879, "#6E5A8A", "before 1880"], [1880, 1914, "--hot", "1880 to 1914"], [1915, 1945, "--gold", "1915 to 1945"], [1946, 3000, "--cool", "after 1945"]];
+const perCol = y => { if (!y) return css("--grey"); const p = PER.find(p => y >= p[0] && y <= p[1]); return p[2].startsWith("--") ? css(p[2]) : (isDark() ? "#A994C9" : p[2]); };
+function mix(a, b, t) { const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return "#" + A.map((x, i) => Math.round(x + (B[i] - x) * t).toString(16).padStart(2, "0")).join(""); }
+
+/* hero mark: a surveyor's set square with the four kinds as lines */
+(function () {
+  const g = document.getElementById("heroMark");
+  el("path", { d: "M8 104 L8 8 L120 104 Z", fill: "none", stroke: "currentColor", "stroke-width": 2.5 }, g);
+  el("line", { x1: 20, y1: 30, x2: 20, y2: 96, stroke: "var(--hot)", "stroke-width": 4 }, g);
+  el("line", { x1: 20, y1: 96, x2: 104, y2: 96, stroke: "var(--hot)", "stroke-width": 4 }, g);
+  el("path", { d: "M34 88 C 44 70, 30 62, 42 50 S 52 40, 46 30", fill: "none", stroke: "var(--cool)", "stroke-width": 3.2 }, g);
+  el("path", { d: "M56 88 L62 74 L66 80 L72 64 L77 72 L82 60 L88 88", fill: "none", stroke: "var(--gold)", "stroke-width": 3.2, "stroke-linejoin": "round" }, g);
+  for (let i = 0; i < 9; i++) el("line", { x1: 8, y1: 8 + i * 11, x2: 14, y2: 8 + i * 11, stroke: "currentColor", "stroke-width": 1.5 }, g);
+})();
+
+/* ---------- the map ---------- */
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const ATT = 'Tiles &copy; Esri | Borders: <a href="https://www.naturalearthdata.com/">Natural Earth</a>';
+const LYDEF = { base: "plain", hills: true, hillK: 35, labels: false, labelK: 80, names: true, nameLvl: 1, countries: true, straight: true, water: true, mountain: true, other: true, lineK: 100, nums: true };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("sb_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("sb_layers", JSON.stringify(LY)); } catch (e) {} };
+const map = L.map("map", { minZoom: 1, maxZoom: 11, maxBounds: [[-70, -220], [86, 220]], zoomSnap: .5, worldCopyJump: false }).setView([18, 15], small() ? 1 : 2);
+["hills:250", "ctry:380", "lines:420", "labels:450", "sel:460", "nums:620", "names:630"].forEach(s => { const [n, z] = s.split(":"); map.createPane(n); map.getPane(n).style.zIndex = z; });
+["hills", "labels", "names", "ctry", "sel"].forEach(n => map.getPane(n).style.pointerEvents = "none");
+const renderer = L.canvas({ pane: "lines", padding: .3, tolerance: 7 });
+let base = null, hills = null, labels = null, lines = null, ctry = null, sel = null;
+const names = L.layerGroup(), nums = L.layerGroup();
+let LINES = null, SITE = null, CTRY = null;
+function setTiles() {
+  [base, labels, hills].forEach(l => { if (l) map.removeLayer(l); });
+  const t = isDark() ? "Dark" : "Light";
+  const url = LY.base === "relief" ? ESRI + "World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}" : LY.base === "satellite" ? ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}" : `${ESRI}Canvas/World_${t}_Gray_Base/MapServer/tile/{z}/{y}/{x}`;
+  base = L.tileLayer(url, { maxZoom: 16, maxNativeZoom: LY.base === "relief" ? 13 : 16, attribution: ATT }).addTo(map);
+  hills = L.tileLayer(ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}", { maxZoom: 16, maxNativeZoom: 16, pane: "hills" });
+  labels = L.tileLayer(`${ESRI}Canvas/World_${t}_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 16, pane: "labels" });
+  applyLayers();
+}
+const W = { straight: 3, water: 2.3, mountain: 2.3, other: 1.6 };
+function lstyle(f) {
+  const k = CL[f.properties.c], on = LY[k], z = map.getZoom(), s = z < 3 ? .8 : z < 5 ? 1 : 1.3;
+  return { color: col(k), weight: on ? W[k] * s : 0, opacity: on ? LY.lineK / 100 : 0, lineCap: "round", renderer, interactive: on };
+}
+function applyLayers() {
+  if (!base) return;
+  if (LY.hills) { hills.addTo(map); hills.setOpacity(Math.min(1, .15 + LY.hillK / 120)); } else map.removeLayer(hills);
+  if (LY.labels) { labels.addTo(map); labels.setOpacity(LY.labelK / 100); } else map.removeLayer(labels);
+  if (ctry) { if (LY.countries) ctry.addTo(map); else map.removeLayer(ctry); }
+  if (lines) lines.setStyle(lstyle);
+  names.addTo(map); if (LY.nums) nums.addTo(map); else map.removeLayer(nums);
+  placeNames(); legend();
+}
+function boxesHit(boxes, bx) { return boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1]); }
+function placeNames() {
+  names.clearLayers(); if (!LY.names) return;
+  const z = map.getZoom(), bb = map.getBounds().pad(.05), boxes = [];
+  const minPop = [[3, 8e6], [4, 3e6], [5, 1.2e6], [6, 5e5], [99, 3e5]].find(([zz]) => z < zz + (LY.nameLvl === 2 ? 1.5 : LY.nameLvl === 0 ? -1 : 0))[1] * (LY.nameLvl === 0 ? 2 : 1);
+  let n = 0;
+  for (const c of CITIES) {
+    if (c.pop < minPop || !bb.contains([c.lat, c.lon])) continue;
+    const pt = map.latLngToContainerPoint([c.lat, c.lon]), bx = [pt.x - 4, pt.y - 8, pt.x + 10 + c.name.length * 6.3, pt.y + 7];
+    if (boxesHit(boxes, bx)) continue; boxes.push(bx);
+    L.marker([c.lat, c.lon], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cityL", html: `<i></i>${esc(c.name)}`, iconSize: null, iconAnchor: [3, 6] }) }).addTo(names);
+    if (++n >= 70) break;
+  }
+}
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label style="font-weight:600">Base map</label><div class="sub"><select data-k="base" aria-label="Base map"><option value="plain">Plain grey</option><option value="relief">Shaded relief</option><option value="satellite">Satellite</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="hills"> Hills and mountains</label><div class="sub"><span>strength</span><input type="range" data-k="hillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="labels"> Map labels</label><div class="sub"><span>strength</span><input type="range" data-k="labelK" min="20" max="100" step="5" aria-label="Map label strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> City names</label><div class="sub"><span>how many</span><select data-k="nameLvl" aria-label="How many city names"><option value="0">Biggest only</option><option value="1">Some</option><option value="2">Lots</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="countries"> Country outlines and coasts</label></div>
+ <div class="hd">Borders by kind</div>
+ <div class="row"><label><input type="checkbox" data-k="straight"> <i class="sw" style="background:var(--hot)"></i>Ruler-straight</label></div>
+ <div class="row"><label><input type="checkbox" data-k="water"> <i class="sw" style="background:var(--cool)"></i>River or lake</label></div>
+ <div class="row"><label><input type="checkbox" data-k="mountain"> <i class="sw" style="background:var(--gold)"></i>Through mountains</label></div>
+ <div class="row"><label><input type="checkbox" data-k="other"> <i class="sw" style="background:var(--grey)"></i>Other or irregular</label></div>
+ <div class="row"><div class="sub"><span>strength</span><input type="range" data-k="lineK" min="30" max="100" step="5" aria-label="Border line strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="nums"> Number the ${R.top_n} longest straight lines</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+    return d; } });
+  map.addControl(new Ctl());
+  const box = map.getContainer(), btn = box.querySelector(".lyrBtn"), pan = box.querySelector(".lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else i.value = LY[k]; });
+  pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => {
+    const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : (k === "base" ? i.value : +i.value);
+    if (k === "hillK") LY.hills = true; if (k === "labelK") LY.labels = true; if (k === "nameLvl") LY.names = true;
+    sync(); saveLY(); if (k === "base") setTiles(); else applyLayers();
+  }));
+  pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setTiles(); };
+  sync();
+})();
+L.control.scale({ imperial: false, position: "bottomright" }).addTo(map);
+map.on("zoomend", () => { if (lines) { lines.setStyle(lstyle); numbers(); } });
+map.on("moveend", placeNames);
+
+function legend() {
+  document.getElementById("legend").innerHTML = CL.map(k => `<span style="opacity:${LY[k] ? 1 : .4}"><i style="background:${col(k)};height:${k === "straight" ? 5 : 4}px"></i>${CN[k]}</span>`).join("") + `<span><i style="width:16px;height:16px;border-radius:50%;background:var(--hot)"></i>Longest straight lines (numbered)</span>`;
+}
+const BN = d => SITE.borders[d];
+function bar4(p) { return `<div class="bar4">${CL.map((k, i) => p[i] > 0 ? `<i style="width:${p[i]}%;background:${col(k)}" title="${CN[k]} ${f1(p[i])}%"></i>` : "").join("")}</div>`; }
+function segHtml(n) {
+  const s = SITE.segs[n]; if (!s) return "";
+  return `<div class="why ${s.conf === "low" ? "low" : ""}"><b>No. ${n} longest straight segment</b>, ${fmt(s.km)} km<br>${esc(s.desc)}<br><br><b>${esc(s.treaty)}</b><br>Year: ${esc(s.year_label)}<br>Agreed by: ${esc(s.powers)}${s.later ? `<br>Later: ${esc(s.later)}` : ""}${s.note ? `<br><i>${esc(s.note)}</i>` : ""}<br><span class="conf ${s.conf}">${esc(s.conf)} confidence</span> <span class="k">Sources: ${esc(s.src)}</span></div>`;
+}
+function popupHtml(p) {
+  const b = BN(p.d), k = CL[p.c];
+  let h = `<b class="t">${esc(b[0])}</b><span class="k">This stretch:</span> <b style="color:${col(k)}">${CN[k]}</b>, ${fmt(p.km)} km`;
+  if (p.s) { const s = SITE.segs[p.s]; h += `<br><span class="k">Line:</span> ${esc(s.desc)}<br><span class="k">Drawn:</span> <b>${esc(s.year_label)}</b>, ${esc(s.treaty)}<br><span class="k">Agreed by:</span> ${esc(s.powers)}<br><span class="conf ${s.conf}">${esc(s.conf)} confidence</span>`; }
+  else if (k === "straight") h += `<br><span class="k">One of the shorter straight segments; no treaty looked up.</span>`;
+  h += `<br><span class="k">Whole border:</span> ${fmt(b[2])} km, ${f1(b[3])}% straight` + bar4(b.slice(3, 7));
+  return h;
+}
+function highlight(feats) {
+  if (sel) map.removeLayer(sel);
+  sel = L.geoJSON({ type: "FeatureCollection", features: feats }, { pane: "sel", interactive: false, style: { color: isDark() ? "#fff" : "#1E2430", weight: 7, opacity: .28, lineCap: "round" } }).addTo(map);
+  return sel;
+}
+const S = { sel: null };
+function side() {
+  const box = document.getElementById("side");
+  if (!SITE) { box.innerHTML = "Loading..."; return; }
+  if (S.sel && S.sel.t === "b") {
+    const d = S.sel.d, b = BN(d); const [a, c] = d.split("-");
+    let h = `<button class="back" id="bk">Back to the world</button><h4>Border</h4><div class="big">${esc(b[0])}</div><div class="sub">${esc(b[1])} · ${fmt(b[2])} km</div>${bar4(b.slice(3, 7))}<table>`;
+    CL.forEach((k, i) => h += `<tr><td><i class="sw" style="background:${col(k)}"></i>${CN[k]}</td><td class="num">${f1(b[3 + i])}%</td></tr>`);
+    h += `</table>`;
+    const segs = Object.entries(SITE.segs).filter(([n, s]) => LINES.features.some(f => f.properties.s == n && f.properties.d === d)).map(([n]) => +n).filter(n => n <= R.top_n);
+    segs.forEach(n => h += segHtml(n));
+    h += `<p class="sub">Countries: <span class="go" data-c="${a}">${esc(SITE.countries[a] ? SITE.countries[a][0] : a)}</span> · <span class="go" data-c="${c}">${esc(SITE.countries[c] ? SITE.countries[c][0] : c)}</span></p>`;
+    box.innerHTML = h;
+  } else if (S.sel && S.sel.t === "c") {
+    const iso = S.sel.iso, c = SITE.countries[iso];
+    let h = `<button class="back" id="bk">Back to the world</button><h4>Country</h4><div class="big">${esc(c[0])}</div><div class="sub">${esc(c[1] || "")} · ${fmt(c[2])} km of land border · ${c[7]} neighbour${c[7] === 1 ? "" : "s"}</div>${bar4(c.slice(3, 7))}<table>`;
+    CL.forEach((k, i) => h += `<tr><td><i class="sw" style="background:${col(k)}"></i>${CN[k]}</td><td class="num">${f1(c[3 + i])}%</td></tr>`);
+    h += `</table><h4>Its borders</h4><table>`;
+    Object.entries(SITE.borders).filter(([d]) => d.split("-").includes(iso)).sort((x, y) => y[1][2] - x[1][2]).forEach(([d, b]) => h += `<tr><td><span class="go" data-d="${d}">${esc(b[0])}</span></td><td class="num">${fmt(b[2])} km<br><small>${f1(b[3])}% straight</small></td></tr>`);
+    box.innerHTML = h + `</table>`;
+  } else {
+    let h = `<h4>The world</h4><div class="big">${fmt(R.world.km)} km of land border</div><div class="sub">${R.world.n_borders} borders between ${R.world.n_countries} countries and territories</div>${bar4(CL.map(k => R.world[k + "_pct"]))}<table>`;
+    CL.forEach(k => h += `<tr><td><i class="sw" style="background:${col(k)}"></i>${CN[k]}</td><td class="num">${f1(R.world[k + "_pct"])}%</td></tr>`);
+    h += `</table><h4>Longest straight lines</h4><table>`;
+    R.top.slice(0, 10).forEach(t => h += `<tr><td><span class="go" data-s="${t.rank}">${t.rank}. ${esc(t.name)}</span><br><small>${esc(t.year_label)}</small></td><td class="num">${fmt(t.km)} km</td></tr>`);
+    box.innerHTML = h + `</table><p class="sub">Click any border on the map, or search a country.</p>`;
+  }
+  const bk = box.querySelector("#bk"); if (bk) bk.onclick = () => { S.sel = null; if (sel) map.removeLayer(sel); side(); };
+  box.querySelectorAll("[data-d]").forEach(s => s.onclick = () => selBorder(s.dataset.d, true));
+  box.querySelectorAll("[data-c]").forEach(s => s.onclick = () => selCountry(s.dataset.c, true));
+  box.querySelectorAll("[data-s]").forEach(s => s.onclick = () => selSeg(+s.dataset.s));
+}
+function selBorder(d, zoom) {
+  S.sel = { t: "b", d }; const fs = LINES.features.filter(f => f.properties.d === d);
+  const l = highlight(fs); if (zoom && fs.length) map.fitBounds(l.getBounds(), { maxZoom: 7, padding: [30, 30] }); side();
+}
+function selCountry(iso, zoom) {
+  S.sel = { t: "c", iso }; const fs = LINES.features.filter(f => f.properties.d.split("-").includes(iso));
+  const l = highlight(fs);
+  if (zoom) { const cf = CTRY && CTRY.features.find(f => f.properties.iso === iso); const bb = cf ? L.geoJSON(cf).getBounds() : (fs.length ? l.getBounds() : null); if (bb) map.fitBounds(bb, { maxZoom: 6, padding: [20, 20] }); }
+  side();
+}
+function selSeg(n) {
+  const fs = LINES.features.filter(f => f.properties.s === n); if (!fs.length) return;
+  const d = fs[0].properties.d; S.sel = { t: "b", d }; const l = highlight(fs);
+  map.fitBounds(l.getBounds(), { maxZoom: 6, padding: [40, 40] }); side();
+  const c = l.getBounds().getCenter(); L.popup({ maxWidth: 300 }).setLatLng(c).setContent(popupHtml(fs[Math.floor(fs.length / 2)].properties)).openOn(map);
+}
+function jump() {
+  const jr = document.getElementById("jumpRow");
+  [["Africa", [[-35, -20], [37, 52]]], ["Sahara", [[12, -18], [33, 36]]], ["Arabia", [[12, 34], [34, 60]]], ["North America", [[14, -170], [72, -52]]], ["South America", [[-56, -82], [13, -34]]], ["Europe", [[35, -11], [71, 42]]], ["Asia", [[0, 40], [56, 135]]], ["World", [[-56, -170], [75, 175]]]]
+    .forEach(([n, b]) => { const x = document.createElement("button"); x.className = "btn"; x.textContent = n; x.setAttribute("aria-pressed", "false"); x.onclick = () => { map.fitBounds(b); jr.querySelectorAll(".btn").forEach(y => y.setAttribute("aria-pressed", y === x)); }; jr.appendChild(x); });
+}
+jump();
+function numbers() {
+  nums.clearLayers();
+  const z = map.getZoom(), lim = z < 2.5 ? 12 : z < 3.5 ? 25 : R.top.length;
+  R.top.slice(0, lim).forEach(t => { const m = L.marker([t.mid[1], t.mid[0]], { pane: "nums", keyboard: false, title: `${t.rank}. ${t.name}`, icon: L.divIcon({ className: "segN", html: t.rank, iconSize: [17, 17], iconAnchor: [8.5, 8.5] }) });
+    m.on("click", () => selSeg(t.rank)); m.addTo(nums); });
+}
+/* search */
+(function () {
+  const q = document.getElementById("q"), sug = document.getElementById("sug"); let opts = [], k = -1;
+  const norm = s => s.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  function list() {
+    const v = norm(q.value.trim()); if (v.length < 2 || !SITE) { sug.style.display = "none"; return; }
+    const res = [];
+    Object.entries(SITE.countries).forEach(([iso, c]) => { const n = norm(c[0]); if (n.includes(v)) res.push({ t: "c", iso, label: c[0], sub: `${fmt(c[2])} km of border, ${f1(c[3])}% straight`, score: n.startsWith(v) ? 0 : 1 }); });
+    Object.entries(SITE.borders).forEach(([d, b]) => { const n = norm(b[0]); if (n.includes(v)) res.push({ t: "b", d, label: b[0], sub: `border, ${fmt(b[2])} km`, score: 2 }); });
+    CITIES.forEach(c => { if (norm(c.name).startsWith(v)) res.push({ t: "x", c, label: c.name, sub: "city", score: 3 }); });
+    opts = res.sort((a, b) => a.score - b.score || a.label.length - b.label.length).slice(0, 12); k = -1;
+    sug.innerHTML = opts.map((o, i) => `<li role="option" data-i="${i}">${esc(o.label)} <span>${esc(o.sub)}</span></li>`).join(""); sug.style.display = opts.length ? "block" : "none";
+    sug.querySelectorAll("li").forEach(li => li.onclick = () => pick(opts[+li.dataset.i]));
+  }
+  function pick(o) {
+    sug.style.display = "none"; q.value = o.label;
+    if (o.t === "c") selCountry(o.iso, true); else if (o.t === "b") selBorder(o.d, true); else map.setView([o.c.lat, o.c.lon], 6);
+  }
+  q.addEventListener("input", list);
+  q.addEventListener("keydown", e => { const li = sug.querySelectorAll("li"); if (e.key === "ArrowDown") { k = Math.min(li.length - 1, k + 1); } else if (e.key === "ArrowUp") { k = Math.max(0, k - 1); } else if (e.key === "Enter") { if (opts[k < 0 ? 0 : k]) pick(opts[k < 0 ? 0 : k]); return; } else return; e.preventDefault(); li.forEach((x, i) => x.setAttribute("aria-selected", i === k)); });
+  document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+  window.searchFor = v => { q.value = v; list(); };
+})();
+
+/* ---------- charts ---------- */
+(function contChart() {
+  const box = document.getElementById("contChart"), C = R.continents;
+  resp(box, (w, sm) => {
+    const lw = sm ? 110 : 150, rh = 34, H = C.length * rh + 6, rw = sm ? 0 : 80, bw = w - lw - rw - 4;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${H}`, role: "img", "aria-label": "Share of each continent's border length by kind" }, box);
+    C.forEach((c, i) => {
+      const y = 4 + i * rh; let x = lw;
+      lbl(svg, lw - 8, y + 18, c.name + (c.name === "Oceania" ? " *" : ""), "lab", "end");
+      CL.forEach(k => { const v = c[k + "_pct"]; if (v <= 0) return; const ww = bw * v / 100;
+        const r = el("rect", { x: x + 1, y, width: Math.max(0, ww - 2), height: rh - 10, fill: col(k), rx: 2 }, svg);
+        hover(r, `<b>${esc(c.name)}</b><br>${CN[k]}: ${f1(v)}% (${fmt(c[k])} km)`);
+        if (k === "straight" && ww > 34) lbl(svg, x + 6, y + 17, Math.round(v) + "%", "lab w s");
+        x += ww; });
+      if (!sm) lbl(svg, w - rw + 6, y + 17, fmt(c.km) + " km", "lab m s");
+    });
+    const lg = document.createElement("div"); lg.className = "legend"; lg.innerHTML = CL.map(k => `<span><i style="background:${col(k)}"></i>${CN[k]}</span>`).join("") + `<span>* one border only</span>`; box.appendChild(lg);
+  });
+})();
+(function sensChart() {
+  const box = document.getElementById("sensChart"), S5 = R.sens_straight.slice().sort((a, b) => a.tol - b.tol || a.lmin - b.lmin);
+  const CS = [["North America", "--cool"], ["Africa", "--hot"], ["South America", "--gold"], ["Asia", "#6E5A8A"], ["Europe", "--grey"]];
+  resp(box, (w, sm) => {
+    const H = sm ? 250 : 280, l = 34, r = 10, t = 10, b = 48, ch = H - t - b, mx = 70;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${H}`, role: "img", "aria-label": "Share straight by continent under twelve settings" }, box);
+    const x = i => l + (w - l - r) * (i + .5) / S5.length, y = v => t + ch * (1 - v / mx);
+    [0, 20, 40, 60].forEach(v => { el("line", { x1: l, x2: w - r, y1: y(v), y2: y(v), stroke: css("--rule") }, svg); lbl(svg, l - 5, y(v) + 4, v + "%", "lab m s", "end"); });
+    S5.forEach((s, i) => { const tt = lbl(svg, x(i), H - b + 16, `${s.tol}/${s.lmin}`, "lab m t", "middle"); if (s.tol === R.meta.settings.tol && s.lmin === R.meta.settings.lmin) el("rect", { x: x(i) - 16, y: t, width: 32, height: ch, fill: "none", stroke: css("--fg"), "stroke-dasharray": "2 3", rx: 3 }, svg); });
+    lbl(svg, l, H - 8, "tolerance km / shortest segment km", "lab m t");
+    CS.forEach(([c, v]) => { const cc = v.startsWith("--") ? css(v) : v;
+      el("path", { d: S5.map((s, i) => `${i ? "L" : "M"}${x(i)},${y(s[c])}`).join(""), fill: "none", stroke: cc, "stroke-width": 2 }, svg);
+      S5.forEach((s, i) => { const d = el("circle", { cx: x(i), cy: y(s[c]), r: 4, fill: cc, stroke: css("--bg"), "stroke-width": 1.5 }, svg); hover(d, `<b>${c}</b><br>tolerance ${s.tol} km, shortest ${s.lmin} km<br>${f1(s[c])}% straight`); }); });
+    const lg = document.createElement("div"); lg.className = "legend"; lg.innerHTML = CS.map(([c, v]) => `<span><i style="background:${v.startsWith("--") ? css(v) : v}"></i>${c}</span>`).join(""); box.appendChild(lg);
+  });
+})();
+(function topChart() {
+  const box = document.getElementById("topChart"), T = R.top, mx = T[0].km;
+  resp(box, (w, sm) => {
+    const rh = 20, lw = sm ? 0 : 230, H = T.length * (sm ? 34 : rh) + 8;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${H}`, role: "img", "aria-label": "The longest straight border segments" }, box);
+    T.forEach((t, i) => {
+      const y = 4 + i * (sm ? 34 : rh), y0 = sm ? y + 14 : y, bw = (w - lw - (sm ? 10 : 170)) * t.km / mx, c = perCol(t.year);
+      if (sm) lbl(svg, 0, y + 10, `${t.rank}. ${t.name}`, "lab s"); else lbl(svg, lw - 8, y + 13, `${t.rank}. ${t.name}`, "lab s", "end");
+      const r = el("rect", { x: lw, y: y0 + 2, width: Math.max(2, bw), height: 14, rx: 2, fill: t.conf === "low" ? mix(css("--bg"), c, .4) : c, stroke: c, "stroke-width": 1, "stroke-dasharray": t.conf === "low" ? "3 2" : "" }, svg);
+      lbl(svg, lw + bw + 5, y0 + 13, `${fmt(t.km)} km · ${t.year_label}`, "lab m s");
+      const hv = el("rect", { x: 0, y, width: w, height: sm ? 34 : rh, fill: "transparent" }, svg); hv.style.cursor = "pointer";
+      hover(hv, `<b>${t.rank}. ${esc(t.name)}</b><br>${esc(t.desc)}, ${fmt(t.km)} km<br>${esc(t.treaty)}<br>${esc(t.year_label)} · ${esc(t.powers)}<br>${t.conf} confidence`);
+      hv.addEventListener("click", () => { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); if (LINES) selSeg(t.rank); });
+    });
+    const lg = document.createElement("div"); lg.className = "legend"; lg.innerHTML = PER.map(p => `<span><i style="background:${p[2].startsWith("--") ? css(p[2]) : p[2]};height:10px"></i>${p[3]}</span>`).join("") + `<span><i style="border:1px dashed var(--muted);height:10px"></i>origin uncertain</span>`; box.appendChild(lg);
+  });
+})();
+(function timeChart() {
+  const box = document.getElementById("timeChart"), T = R.top.filter(t => t.year);
+  resp(box, (w, sm) => {
+    const H = sm ? 260 : 320, l = 46, r = 10, t = 12, b = 26, ch = H - t - b;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${H}`, role: "img", "aria-label": "Year drawn against length" }, box);
+    const x = v => l + (w - l - r) * (v - 1770) / (2010 - 1770), y = v => t + ch * (1 - (v - 100) / 2100);
+    el("rect", { x: x(1880), y: t, width: x(1914) - x(1880), height: ch, fill: mix(css("--bg"), css("--hot"), .12) }, svg);
+    lbl(svg, (x(1880) + x(1914)) / 2, t + 14, "1880 to 1914", "lab s", "middle");
+    [500, 1000, 1500, 2000].forEach(v => { el("line", { x1: l, x2: w - r, y1: y(v), y2: y(v), stroke: css("--rule") }, svg); lbl(svg, l - 5, y(v) + 4, fmt(v), "lab m s", "end"); });
+    [1800, 1850, 1900, 1950, 2000].forEach(v => lbl(svg, x(v), H - 6, v, "lab m s", "middle"));
+    T.forEach(tt => { const c = tt.cont === "Africa" ? css("--hot") : css("--cool");
+      const d = el("circle", { cx: x(tt.year), cy: y(tt.km), r: 3.5 + Math.sqrt(tt.km) / 7, fill: tt.conf === "low" ? "none" : c, "fill-opacity": .85, stroke: c, "stroke-width": 1.6 }, svg);
+      hover(d, `<b>${tt.rank}. ${esc(tt.name)}</b><br>${fmt(tt.km)} km · ${esc(tt.year_label)}<br>${esc(tt.treaty)}`); d.style.cursor = "pointer";
+      d.addEventListener("click", () => { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); if (LINES) selSeg(tt.rank); }); });
+    [[1, "49th parallel"], [2, "141st meridian"], [3, "Mali and Mauritania"]].forEach(([n, s]) => { const tt = T.find(z => z.rank === n); if (tt) lbl(svg, x(tt.year) + 12, y(tt.km) + 4, s, "lab s"); });
+    const lg = document.createElement("div"); lg.className = "legend"; lg.innerHTML = `<span><i style="background:${css("--hot")};width:12px;height:12px;border-radius:50%"></i>In Africa</span><span><i style="background:${css("--cool")};width:12px;height:12px;border-radius:50%"></i>Elsewhere</span><span><i style="border:1.5px solid var(--muted);width:12px;height:12px;border-radius:50%"></i>Origin uncertain</span>`; box.appendChild(lg);
+  });
+})();
+(function rmChart() {
+  const box = document.getElementById("rmChart");
+  resp(box, (w, sm) => {
+    const two = !sm && w > 700, cw = two ? (w - 20) / 2 : w, rh = 22, H = two ? 10 * rh + 34 : 2 * (10 * rh + 34);
+    const svg = el("svg", { viewBox: `0 0 ${w} ${H}`, role: "img", "aria-label": "Borders with the most river and mountain length" }, box);
+    [["water", "Most river or lake", R.borders.top_water_km], ["mountain", "Most mountain", R.borders.top_mountain_km]].forEach(([k, ttl, T], j) => {
+      const ox = two ? j * (cw + 20) : 0, oy = two ? 0 : j * (10 * rh + 34), lw = Math.min(200, cw * .45), mx = Math.max(...T.slice(0, 10).map(t => t.total));
+      lbl(svg, ox, oy + 14, ttl, "lab b");
+      T.slice(0, 10).forEach((t, i) => { const y = oy + 26 + i * rh, sc = (cw - lw - 8) / mx;
+        lbl(svg, ox + lw - 6, y + 12, t.name.length > 28 ? t.name.slice(0, 27) + "…" : t.name, "lab s", "end");
+        el("rect", { x: ox + lw, y: y + 2, width: t.total * sc, height: 14, rx: 2, fill: mix(css("--bg"), col(k), .2) }, svg);
+        const r = el("rect", { x: ox + lw, y: y + 2, width: t.km * sc, height: 14, rx: 2, fill: col(k) }, svg);
+        hover(r, `<b>${esc(t.name)}</b><br>${fmt(t.km)} of ${fmt(t.total)} km (${f1(t.pct)}%)`); });
+    });
+  });
+})();
+(function scaleChart() {
+  const box = document.getElementById("scaleChart"), S = [["1:10 million", R.scale["10m"]], ["1:50 million", R.scale["50m"]], ["1:110 million", R.scale["110m"]]];
+  resp(box, (w) => {
+    const rh = 34, lw = 110, H = S.length * rh + 4, svg = el("svg", { viewBox: `0 0 ${w} ${H}`, role: "img", "aria-label": "Share straight at three map scales" }, box);
+    S.forEach(([n, s], i) => { const y = 2 + i * rh, bw = (w - lw - 60) * s.straight_pct / 100;
+      lbl(svg, lw - 8, y + 18, n, "lab", "end");
+      const r = el("rect", { x: lw, y: y + 4, width: bw, height: rh - 12, rx: 2, fill: mix(css("--bg"), css("--hot"), 1 - i * .3) }, svg);
+      hover(r, `<b>${n}</b><br>${f1(s.straight_pct)}% straight of ${fmt(s.total)} km`);
+      lbl(svg, lw + bw + 6, y + 18, f1(s.straight_pct) + "%", "lab"); });
+  });
+})();
+function tables() {
+  const T = document.getElementById("topTable");
+  T.innerHTML = `<tr><th>#</th><th>Border</th><th>Line</th><th class="num">km</th><th>Treaty or origin</th><th>Year</th><th>Agreed by</th><th>Confidence</th></tr>` +
+    R.top.map(t => `<tr><td>${t.rank}</td><td>${esc(t.name)}</td><td>${esc(t.desc)}</td><td class="num">${fmt(t.km)}</td><td>${esc(t.treaty)}</td><td>${esc(t.year_label)}</td><td>${esc(t.powers)}</td><td><span class="conf ${t.conf}">${t.conf}</span></td></tr>`).join("");
+  const C = document.getElementById("cyTable");
+  C.innerHTML = `<tr><th>Country</th><th class="num">Land border</th><th class="num">Straight</th><th class="num">River or lake</th><th class="num">Mountains</th></tr>` +
+    Object.entries(SITE.countries).filter(([i, c]) => c[2] >= 1000).sort((a, b) => b[1][3] - a[1][3]).slice(0, 15).map(([i, c]) => `<tr><td><span class="go" data-cy="${i}">${esc(c[0])}</span></td><td class="num">${fmt(c[2])} km</td><td class="num">${f1(c[3])}%</td><td class="num">${f1(c[4])}%</td><td class="num">${f1(c[5])}%</td></tr>`).join("");
+  C.querySelectorAll("[data-cy]").forEach(s => s.onclick = () => { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); selCountry(s.dataset.cy, true); });
+}
+
+/* ---------- start ---------- */
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; setTiles(); redraws.forEach(f => f()); if (ctry) ctry.setStyle(cstyle()); side(); };
+const cstyle = () => ({ color: isDark() ? "#5b606c" : "#B9AF9C", weight: .6, fill: false, opacity: .9 });
+Promise.all([fetch("data/site.json").then(r => r.json()), fetch("data/map_lines.json").then(r => r.json())]).then(([s, g]) => {
+  SITE = s; LINES = g; tables();
+  lines = L.geoJSON(g, { renderer, style: lstyle, onEachFeature: (f, l) => {
+    l.on("click", e => { L.popup({ maxWidth: 300 }).setLatLng(e.latlng).setContent(popupHtml(f.properties)).openOn(map); S.sel = { t: "b", d: f.properties.d }; highlight(LINES.features.filter(x => x.properties.d === f.properties.d)); side(); });
+    l.on("mousemove", e => { if (small()) return; const r = map.getContainer().getBoundingClientRect(); const b = BN(f.properties.d); showTip(`<b>${esc(b[0])}</b><br>${CN[CL[f.properties.c]]}, ${fmt(f.properties.km)} km`, r.left + e.containerPoint.x, r.top + e.containerPoint.y); });
+    l.on("mouseout", hideTip);
+  } }).addTo(map);
+  numbers(); setTiles(); side();
+  fetch("data/countries_lite.json").then(r => r.json()).then(c => { CTRY = c; ctry = L.geoJSON(c, { pane: "ctry", interactive: false, style: cstyle() }); applyLayers(); });
+});
+side();
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

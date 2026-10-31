@@ -1,0 +1,271 @@
+"""Hand-curated table: who drew the longest straight borders, and when.
+
+One entry per border (country pair), or per stretch of a border when its straight segments have different origins
+(sel: the segment's type and value, or a box around its midpoint, lon0, lon1, lat0, lat1). Built from standard
+references, not from a database, and so open to correction:
+
+  Brownlie  Brownlie, I. (1979) African Boundaries: A Legal and Diplomatic Encyclopaedia. London: C. Hurst for the
+            Royal Institute of International Affairs.
+  Biger     Biger, G. (ed.) (1995) The Encyclopedia of International Boundaries. New York: Facts on File.
+  IBS       US Department of State, Office of the Geographer, International Boundary Study series (one study per border).
+  ICJ1994   International Court of Justice (1994) Territorial Dispute (Libyan Arab Jamahiriya/Chad), Judgment of 3 February.
+  IBC       International Boundary Commission (Canada and United States), https://www.internationalboundarycommission.org
+  IBWC      International Boundary and Water Commission (United States and Mexico), https://www.ibwc.gov
+  WP        the English Wikipedia article on the border, e.g. "Egypt-Sudan border" (checked against the above where possible).
+
+year is the year the line was first set in (roughly) its present straight form; year_label says it in words; later is
+a later confirming instrument. conf: high (a well-known treaty set this line), medium (the treaty is known but which
+instrument set this exact stretch, or its date, is less certain), low (a colonial administrative line or an origin
+I could not pin down; treat as uncertain). Powers are those that agreed the line, not the peoples living on it.
+"""
+
+T = [
+    # ---------------- North America
+    dict(k="CAN-USA", sel=("parallel", 48.5, 49.5), line="49th parallel, Lake of the Woods to the Strait of Georgia",
+         treaty="Convention of 1818 (east of the Rocky Mountains) and Oregon Treaty (west of them)", year=1818, year_label="1818 and 1846",
+         powers="United Kingdom, United States", later="Surveyed 1857 to 1862 and 1872 to 1876; Treaty of 1908", conf="high",
+         src="IBC; Biger; WP: Canada-United States border"),
+    dict(k="CAN-USA", sel=("meridian", -141.5, -140.5), line="141st meridian, Mount St Elias to the Arctic Ocean",
+         treaty="Anglo-Russian Convention of St Petersburg", year=1825, year_label="1825",
+         powers="Russian Empire, United Kingdom", later="Alaska sold to the United States 1867; Convention of 1906 and survey 1907 to 1913", conf="high",
+         src="IBC; Biger; WP: Alaska-Canada border"),
+    dict(k="CAN-USA", sel=("parallel", 44.5, 45.5), line="45th parallel, St Lawrence to the Connecticut River area",
+         treaty="Treaty of Paris (1783), line fixed by the Webster-Ashburton Treaty", year=1783, year_label="1783 (fixed 1842)",
+         powers="United Kingdom, United States", later="Webster-Ashburton Treaty 1842", conf="high", src="IBC; WP: Canada-United States border"),
+    dict(k="CAN-USA", sel=("box", -93.0, -76.0, 41.0, 49.0), line="Straight courses through Lake Superior, Lake Huron and the other Great Lakes",
+         treaty="Boundary commissions under the Treaty of Ghent, confirmed by the Webster-Ashburton Treaty", year=1842, year_label="1822 to 1842",
+         powers="United Kingdom, United States", later="Treaty of 1908", conf="medium", src="IBC; WP: Canada-United States border",
+         note="Natural Earth draws the line through the lakes as straight courses between turning points."),
+    dict(k="MEX-USA", sel=("box", -111.2, -108.0, 31.0, 31.6), line="31 degrees 20 minutes north",
+         treaty="Gadsden Purchase (Treaty of La Mesilla)", year=1853, year_label="1853",
+         powers="Mexico, United States", later="Surveyed 1855; resurveyed 1891 to 1894", conf="high", src="IBWC; WP: Gadsden Purchase"),
+    dict(k="MEX-USA", sel=("box", -115.0, -111.0, 31.0, 32.6), line="Nogales to the Colorado River",
+         treaty="Gadsden Purchase (Treaty of La Mesilla)", year=1853, year_label="1853",
+         powers="Mexico, United States", later="Surveyed 1855; resurveyed 1891 to 1894", conf="high", src="IBWC; WP: Gadsden Purchase"),
+    dict(k="MEX-USA", sel=("box", -117.3, -114.5, 32.3, 32.9), line="Colorado River to the Pacific south of San Diego",
+         treaty="Treaty of Guadalupe Hidalgo", year=1848, year_label="1848",
+         powers="Mexico, United States", later="Surveyed 1849 to 1850", conf="high", src="IBWC; WP: Treaty of Guadalupe Hidalgo"),
+    dict(k="MEX-USA", sel=("box", -108.3, -106.4, 31.6, 31.9), line="31 degrees 47 minutes north, west of El Paso",
+         treaty="Gadsden Purchase (Treaty of La Mesilla)", year=1853, year_label="1853",
+         powers="Mexico, United States", later="", conf="high", src="IBWC; WP: Gadsden Purchase"),
+    dict(k="GTM-MEX", line="17 degrees 49 minutes north and the meridian lines of the Petén",
+         treaty="Mexico-Guatemala boundary treaty", year=1882, year_label="1882",
+         powers="Guatemala, Mexico", later="Demarcated 1883 to 1899", conf="high", src="Biger; WP: Guatemala-Mexico border"),
+    dict(k="BLZ-GTM", line="Meridian line west of Belize",
+         treaty="Anglo-Guatemalan Treaty (Wyke-Aycinena)", year=1859, year_label="1859",
+         powers="Guatemala, United Kingdom", later="Disputed by Guatemala; before the International Court of Justice", conf="medium",
+         src="Biger; WP: Belize-Guatemala territorial dispute"),
+    # ---------------- North Africa and the Sahara
+    dict(k="EGY-SDN", line="22nd parallel north",
+         treaty="Anglo-Egyptian Condominium Agreement", year=1899, year_label="1899",
+         powers="Egypt, United Kingdom", later="Administrative line of 1902 gives Hala'ib to Egypt's rule and Bir Tawil to Sudan's, disputed since", conf="high",
+         src="Brownlie; IBS; WP: Egypt-Sudan border"),
+    dict(k="EGY-LBY", line="25th meridian east",
+         treaty="Italo-Egyptian boundary agreement", year=1925, year_label="1925",
+         powers="Egypt, Italy (with the United Kingdom)", later="Demarcated 1926 to 1927", conf="high", src="Brownlie; WP: Egypt-Libya border"),
+    dict(k="LBY-SDN", line="25th meridian east and 20th parallel north",
+         treaty="Anglo-Italian exchange of notes on the Sarra Triangle", year=1934, year_label="1934",
+         powers="Italy, United Kingdom (for Egypt and Sudan)", later="Confirmed on Libya's independence, 1951", conf="medium",
+         src="Brownlie; WP: Libya-Sudan border"),
+    dict(k="LBY-TCD", line="From 24 degrees east at 19 degrees 30 minutes north to the Tropic of Cancer at 16 degrees east",
+         treaty="Anglo-French Declaration (1899), as interpreted in the Anglo-French Convention of 1919", year=1899, year_label="1899 (1919)",
+         powers="France, United Kingdom", later="Franco-Libyan Treaty 1955; upheld by the International Court of Justice 1994 (Aouzou Strip)", conf="high",
+         src="ICJ1994; Brownlie; WP: Chad-Libya border"),
+    dict(k="SDN-TCD", line="24th meridian east, north of Darfur",
+         treaty="Anglo-French Convention (following the 1899 Declaration)", year=1919, year_label="1919",
+         powers="France, United Kingdom", later="Demarcated 1922 to 1924 in the south", conf="medium", src="Brownlie; WP: Chad-Sudan border"),
+    dict(k="DZA-MLI", line="Lines across the central Sahara",
+         treaty="Agreement between the Commandant of Upper Senegal and Niger and the Military Commander of the Oasis territory (French Algeria), further defined by the Niamey Convention of 1909", year=1905, year_label="1905, refined 1909",
+         powers="France (between its own colonial administrations)", later="Algeria-Mali boundary treaty, 1983", conf="medium",
+         src="Brownlie; https://en.wikipedia.org/wiki/Algeria%E2%80%93Mali_border"),
+    dict(k="DZA-NER", line="Lines across the central Sahara",
+         treaty="Agreement between the Commandant of Upper Senegal and Niger and the Military Commander of the Oasis territory (French Algeria), further defined by the Niamey Convention of 1909", year=1905, year_label="1905, refined 1909",
+         powers="France (between its own colonial administrations)", later="Algeria-Niger boundary treaty, 1983", conf="medium",
+         src="Brownlie; https://en.wikipedia.org/wiki/Algeria%E2%80%93Niger_border"),
+    dict(k="DZA-MRT", line="Straight line from the Western Sahara corner to the Mali tripoint",
+         treaty="Agreement between the Commandant of Upper Senegal and Niger and the Military Commander of the Oasis territory (French Algeria), further defined by the Niamey Convention of 1909", year=1905, year_label="1905, refined 1909",
+         powers="France (between its own colonial administrations)", later="Algeria-Mauritania boundary treaty, 1983", conf="medium",
+         src="Brownlie; https://en.wikipedia.org/wiki/Algeria%E2%80%93Mauritania_border"),
+    dict(k="DZA-TUN", line="Southern straight stretch towards Ghadames",
+         treaty="Franco-Ottoman (Tunisia and Tripolitania) agreement near Ghadames, and later French administrative limits", year=1910, year_label="1910?",
+         powers="France, Ottoman Empire (for the tripoint)", later="Algeria-Tunisia agreement, 1970", conf="low",
+         src="Brownlie; WP: Algeria-Tunisia border", note="Uncertain which instrument drew the straight stretch."),
+    dict(k="MLI-MRT", line="Straight lines and the 15 degrees 30 minutes and 25th parallels",
+         treaty="French colonial decree moving the line between French Sudan and Mauritania (first drawn in 1913)", year=1944, year_label="1944 decree (Kayes 1963)",
+         powers="France (colonial decree); then Mali and Mauritania", later="Treaty of Kayes between Mali and Mauritania, 1963, modified it slightly", conf="medium",
+         src="Brownlie; https://en.wikipedia.org/wiki/Mali%E2%80%93Mauritania_border"),
+    dict(k="MLI-NER", line="Meridian 4 degrees 14 minutes east and lines south of it",
+         treaty="French colonial administrative limit between French Sudan and Niger", year=None, year_label="colonial, date uncertain",
+         powers="France (between its own colonial administrations)", later="", conf="low", src="Brownlie; WP: Mali-Niger border"),
+    dict(k="NER-TCD", sel=("box", 10.0, 20.0, 16.0, 24.0), line="Line west of Tibesti, north of 16 degrees north",
+         treaty="Memorandum No. 2268 transferring Tibesti from French West Africa to French Equatorial Africa", year=1931, year_label="1931",
+         powers="France (between its own colonial administrations)", later="", conf="medium", src="Brownlie; https://en.wikipedia.org/wiki/Chad%E2%80%93Niger_border"),
+    dict(k="NER-TCD", line="Southern section, up to 16 degrees north",
+         treaty="Convention of the military commanders of Chad and Niger", year=1912, year_label="1912",
+         powers="France (between its own colonial administrations)", later="", conf="medium", src="Brownlie; https://en.wikipedia.org/wiki/Chad%E2%80%93Niger_border"),
+    dict(k="MRT-SAH", sel=("parallel", 21.0, 21.6), line="21 degrees 20 minutes north",
+         treaty="Franco-Spanish Convention of Paris", year=1900, year_label="1900",
+         powers="France, Spain", later="Conventions of 1904 and 1912", conf="high", src="Brownlie; WP: Mauritania-Western Sahara border"),
+    dict(k="MRT-SAH", sel=("meridian", -13.5, -11.5), line="Meridian 12 degrees west (and 13 degrees west)",
+         treaty="Franco-Spanish Convention of Paris", year=1900, year_label="1900",
+         powers="France, Spain", later="Conventions of 1904 and 1912", conf="medium", src="Brownlie; WP: Mauritania-Western Sahara border"),
+    dict(k="MRT-SAH", line="26th parallel and other lines",
+         treaty="Franco-Spanish conventions (1900, extended north in 1904)", year=1904, year_label="1904?",
+         powers="France, Spain", later="Convention of 1912", conf="medium", src="Brownlie; WP: Mauritania-Western Sahara border"),
+    dict(k="DZA-SAH", line="Meridian 8 degrees 40 minutes west",
+         treaty="Franco-Spanish conventions on Spanish Sahara", year=1904, year_label="1904?",
+         powers="France, Spain", later="Convention of 1912", conf="medium", src="Brownlie"),
+    dict(k="MAR-SAH", line="27 degrees 40 minutes north",
+         treaty="Franco-Spanish Convention on Morocco", year=1912, year_label="1912",
+         powers="France, Spain", later="Morocco has claimed Western Sahara since 1975; the line here is Natural Earth's", conf="medium",
+         src="Brownlie; WP: Morocco-Western Sahara border"),
+    # ---------------- East and southern Africa
+    dict(k="KEN-TZA", line="Lake Victoria to Kilimanjaro, and Kilimanjaro to the coast",
+         treaty="Anglo-German Agreement", year=1886, year_label="1886",
+         powers="Germany, United Kingdom", later="Heligoland-Zanzibar Treaty 1890; protocols of 1892 and 1900", conf="high",
+         src="Brownlie; IBS; WP: Kenya-Tanzania border"),
+    dict(k="TZA-UGA", line="1st parallel south, across Lake Victoria and west of it",
+         treaty="Anglo-German Agreement (Heligoland-Zanzibar Treaty)", year=1890, year_label="1890",
+         powers="Germany, United Kingdom", later="Kagera salient adjusted 1910", conf="high", src="Brownlie; IBS; WP: Tanzania-Uganda border"),
+    dict(k="KEN-UGA", line="Line across Lake Victoria",
+         treaty="British administrative transfer of the Eastern Province from Uganda to the East Africa Protectorate", year=1902, year_label="1902 (1926)",
+         powers="United Kingdom (between its own protectorates)", later="Adjusted 1926", conf="medium", src="Brownlie; WP: Kenya-Uganda border"),
+    dict(k="KEN-SOM", line="Line near 41 degrees east, Dolo to the coast",
+         treaty="Anglo-Italian Treaty ceding Jubaland to Italy", year=1924, year_label="1924",
+         powers="Italy, United Kingdom", later="Demarcated 1925 to 1933", conf="high", src="Brownlie; IBS; WP: Kenya-Somalia border"),
+    dict(k="ETH-SOL", line="Line across the Haud",
+         treaty="Anglo-Ethiopian Treaty (Rennell Rodd)", year=1897, year_label="1897",
+         powers="Ethiopia, United Kingdom", later="Demarcated 1932 to 1935", conf="high", src="Brownlie; IBS; WP: Ethiopia-Somaliland border"),
+    dict(k="ETH-SOM", line="Provisional Administrative Line in the Ogaden",
+         treaty="Provisional Administrative Line (British), drawn after the Ogaden and Haud returned to Ethiopia; the Italo-Ethiopian convention of 1908 was never demarcated", year=1950, year_label="1950s",
+         powers="United Kingdom (provisional line); Ethiopia and Italy in 1908", later="Undemarcated and disputed (Ogaden War 1977 to 1978)", conf="low",
+         src="Brownlie; https://en.wikipedia.org/wiki/Ethiopia%E2%80%93Somalia_border; https://digitallibrary.un.org/record/708620", note="Natural Earth marks it as indefinite; the exact date of the line is uncertain."),
+    dict(k="SOL-SOM", line="49th meridian east and the line to it",
+         treaty="Anglo-Italian Protocol (British and Italian Somaliland)", year=1894, year_label="1894",
+         powers="Italy, United Kingdom", later="Somaliland declared independence from Somalia in 1991, unrecognised", conf="medium",
+         src="Brownlie; WP: Somalia-Somaliland border"),
+    dict(k="NAM-ZAF", line="20th meridian east",
+         treaty="Anglo-German Agreement (Heligoland-Zanzibar Treaty)", year=1890, year_label="1890",
+         powers="Germany, United Kingdom", later="", conf="high", src="Brownlie; IBS; WP: Namibia-South Africa border"),
+    dict(k="BWA-NAM", line="20th and 21st meridians east and the 22nd parallel south",
+         treaty="Anglo-German Agreement (Heligoland-Zanzibar Treaty)", year=1890, year_label="1890",
+         powers="Germany, United Kingdom", later="Kasikili Island judgment, International Court of Justice 1999", conf="high",
+         src="Brownlie; IBS; WP: Botswana-Namibia border"),
+    dict(k="AGO-NAM", sel=("parallel", -17.6, -17.2), line="Parallel from the Ruacana falls on the Kunene to the Okavango",
+         treaty="Portuguese-German Declaration", year=1886, year_label="1886",
+         powers="Germany, Portugal", later="Demarcated 1920s to 1930s", conf="high", src="Brownlie; IBS; WP: Angola-Namibia border"),
+    dict(k="AGO-NAM", line="Straight line from Andara on the Okavango towards the Zambezi",
+         treaty="Portuguese-German Declaration", year=1886, year_label="1886",
+         powers="Germany, Portugal", later="", conf="medium", src="Brownlie; WP: Angola-Namibia border"),
+    dict(k="AGO-ZMB", line="22nd meridian east and 13th parallel south",
+         treaty="Arbitral award of King Victor Emmanuel III of Italy on the western limits of Barotseland", year=1905, year_label="1905",
+         powers="Portugal, United Kingdom (arbitrated by Italy)", later="Anglo-Portuguese agreements of 1915", conf="medium",
+         src="Brownlie; IBS; WP: Angola-Zambia border"),
+    dict(k="COD-ZMB", line="Lake Tanganyika to Lake Mweru",
+         treaty="Anglo-Congolese Agreement", year=1894, year_label="1894",
+         powers="Congo Free State, United Kingdom", later="Demarcated 1911 to 1914 and later", conf="medium", src="Brownlie; WP: DR Congo-Zambia border"),
+    dict(k="AGO-COD", line="Parallel south of the lower Congo River",
+         treaty="Convention between Portugal and the International Association of the Congo (Berlin Conference period)", year=1885, year_label="1885",
+         powers="Congo Free State (International Association), Portugal", later="Convention of 1891", conf="medium",
+         src="Brownlie; WP: Angola-DR Congo border"),
+    dict(k="MOZ-TZA", line="Ruvuma river mouth area",
+         treaty="Anglo-Portuguese and German-Portuguese agreements", year=1886, year_label="1886", powers="Germany, Portugal", later="", conf="low", src="Brownlie"),
+    # ---------------- Arabia and the Middle East
+    dict(k="SAU-YEM", line="Straight lines across the Rub' al Khali",
+         treaty="Treaty of Jeddah", year=2000, year_label="2000", powers="Saudi Arabia, Yemen", later="", conf="high", src="Biger; WP: Saudi Arabia-Yemen border"),
+    dict(k="OMN-SAU", line="Straight lines across the Rub' al Khali",
+         treaty="Saudi-Omani boundary agreement", year=1990, year_label="1990", powers="Oman, Saudi Arabia", later="Demarcated in the 1990s", conf="medium",
+         src="Biger; WP: Oman-Saudi Arabia border"),
+    dict(k="OMN-YEM", line="Straight line north of Dhofar",
+         treaty="Omani-Yemeni boundary agreement", year=1992, year_label="1992", powers="Oman, Yemen", later="", conf="high", src="WP: Oman-Yemen border"),
+    dict(k="ARE-SAU", line="Straight lines south of the Liwa",
+         treaty="Treaty of Jeddah (text long unpublished; the line drawn is approximate)", year=1974, year_label="1974",
+         powers="Saudi Arabia, United Arab Emirates", later="Disputed by the UAE since 2004", conf="medium", src="Biger; WP: Saudi Arabia-United Arab Emirates border"),
+    dict(k="IRQ-SAU", line="Lines across the northern desert",
+         treaty="Uqair Protocol (with a Neutral Zone)", year=1922, year_label="1922 (1981)",
+         powers="Nejd (Ibn Saud), United Kingdom (for Iraq)", later="Neutral Zone divided by Iraq and Saudi Arabia, 1981", conf="medium",
+         src="Biger; WP: Iraq-Saudi Arabia border"),
+    dict(k="JOR-SAU", line="Straight lines from the Gulf of Aqaba inland",
+         treaty="Hadda Agreement (1925), redrawn by the Jordan-Saudi boundary agreement of 1965", year=1925, year_label="1925 (1965)",
+         powers="Nejd (Ibn Saud), United Kingdom (for Transjordan); then Jordan and Saudi Arabia", later="1965 agreement", conf="medium",
+         src="Biger; WP: Jordan-Saudi Arabia border"),
+    dict(k="JOR-SYR", line="Straight line east of the Jabal al-Druze",
+         treaty="Franco-British Convention on the mandates", year=1920, year_label="1920 (1931)",
+         powers="France, United Kingdom", later="Protocol and demarcation 1931 to 1932", conf="medium", src="Biger; WP: Jordan-Syria border"),
+    dict(k="IRQ-SYR", line="Straight lines across the Syrian desert",
+         treaty="Franco-British Convention on the mandates (not, as often said, Sykes-Picot)", year=1920, year_label="1920 (1932)",
+         powers="France, United Kingdom", later="League of Nations commission, 1932", conf="medium", src="Biger; WP: Iraq-Syria border"),
+    dict(k="IRQ-JOR", line="Straight lines in the desert",
+         treaty="British administrative line between its two mandates", year=1922, year_label="1922?",
+         powers="United Kingdom", later="Iraq-Jordan agreement 1984", conf="low", src="Biger; WP: Iraq-Jordan border"),
+    dict(k="EGY-ISR", line="Rafah to Taba",
+         treaty="Ottoman-British (Egyptian) agreement on the Sinai boundary", year=1906, year_label="1906",
+         powers="Ottoman Empire, United Kingdom (for Egypt)", later="Egypt-Israel peace treaty 1979; Taba arbitration 1988", conf="high", src="Biger; WP: Egypt-Israel border"),
+    dict(k="KWT-SAU", line="Neutral Zone lines",
+         treaty="Uqair Protocol", year=1922, year_label="1922 (1965)", powers="Nejd (Ibn Saud), United Kingdom (for Kuwait)",
+         later="Neutral Zone partitioned 1965 to 1970", conf="medium", src="Biger; WP: Kuwait-Saudi Arabia border"),
+    # ---------------- Asia and Europe
+    dict(k="KAZ-UZB", line="Lines across the Ustyurt plateau (including the 56th meridian)",
+         treaty="Soviet national-territorial delimitation between the Kazakh and Uzbek (Karakalpak) republics, with transfers in 1936, 1956 and 1963", year=1924, year_label="Soviet 1924, later transfers",
+         powers="Soviet Union (between its own republics); then Kazakhstan and Uzbekistan", later="Treaties of 2001 and 2002 (in force 2003)", conf="medium",
+         src="Biger; https://en.wikipedia.org/wiki/Kazakhstan%E2%80%93Uzbekistan_border"),
+    dict(k="KAZ-TKM", line="Lines across the Ustyurt plateau",
+         treaty="Soviet administrative line between the Kazakh and Turkmen republics", year=1930, year_label="1920s to 1930s?",
+         powers="Soviet Union (between its own republics)", later="Delimitation treaty, 2001", conf="low", src="WP: Kazakhstan-Turkmenistan border"),
+    dict(k="POL-RUS", line="Line across East Prussia",
+         treaty="Potsdam Agreement, line fixed by the Polish-Soviet border treaty", year=1945, year_label="1945",
+         powers="Poland, Soviet Union (with the United Kingdom and the United States at Potsdam)", later="Demarcated 1957", conf="high",
+         src="Biger; WP: Poland-Russia border"),
+    dict(k="CHN-MNG", line="Straight lines in the Gobi",
+         treaty="Sino-Mongolian Boundary Treaty", year=1962, year_label="1962", powers="China, Mongolia", later="Protocol 1964", conf="high",
+         src="Biger; WP: China-Mongolia border"),
+    dict(k="IDN-PNG", line="141st meridian east, north and south of the Fly River",
+         treaty="Anglo-Dutch boundary treaty", year=1895, year_label="1895",
+         powers="Netherlands, United Kingdom", later="Australia-Indonesia agreement 1973", conf="medium", src="Biger; IBS; https://en.wikipedia.org/wiki/Indonesia%E2%80%93Papua_New_Guinea_border",
+         note="An Anglo-German agreement of 1885 divided the eastern half of the island; the 1895 treaty delimited the Dutch boundary at its current place."),
+    # ---------------- South America
+    dict(k="ARG-CHL", sel=("meridian", -69.0, -68.0), line="Meridian 68 degrees 34 minutes west, Tierra del Fuego",
+         treaty="Boundary Treaty of 1881", year=1881, year_label="1881", powers="Argentina, Chile", later="", conf="high", src="Biger; WP: Argentina-Chile border"),
+    dict(k="BRA-COL", line="Apaporis to Tabatinga line",
+         treaty="Brazil-Colombia boundary treaty", year=1928, year_label="1928",
+         powers="Brazil, Colombia", later="", conf="medium", src="Biger; WP: Brazil-Colombia border", note="The line was first agreed between Brazil and Peru in 1851."),
+    dict(k="BOL-PER", line="Straight lines in the Madre de Dios region",
+         treaty="Polo-Sánchez Bustamante treaty, after the Argentine arbitral award", year=1909, year_label="1909",
+         powers="Bolivia, Peru", later="Demarcated 1911 to 1913", conf="medium", src="Biger; WP: Bolivia-Peru border"),
+    dict(k="BOL-PRY", line="Straight lines across the Gran Chaco",
+         treaty="Chaco Peace Treaty and arbitral award (after the Chaco War)", year=1938, year_label="1938",
+         powers="Bolivia, Paraguay (arbitrated by six American states)", later="Final demarcation 2009", conf="high", src="Biger; WP: Bolivia-Paraguay border"),
+    dict(k="BOL-BRA", line="Straight lines in the Chiquitos lowlands",
+         treaty="Treaty of Ayacucho (modified by the Treaty of Petrópolis, 1903)", year=1867, year_label="1867",
+         powers="Bolivia, Brazil", later="Treaty of Petrópolis 1903", conf="low", src="Biger; WP: Bolivia-Brazil border", note="Uncertain which treaty drew this stretch."),
+    dict(k="BRA-PER", line="Straight line south of the Javary",
+         treaty="Brazil-Peru boundary treaty", year=1909, year_label="1909", powers="Brazil, Peru", later="", conf="low", src="Biger; WP: Brazil-Peru border"),
+    dict(k="BRA-VEN", line="Watershed lines", treaty="Brazil-Venezuela boundary treaty", year=1859, year_label="1859", powers="Brazil, Venezuela",
+         later="", conf="low", src="Biger"),
+    dict(k="ARG-BOL", line="Straight lines in the Puna and the Chaco", treaty="Argentina-Bolivia boundary treaty", year=1925, year_label="1925",
+         powers="Argentina, Bolivia", later="", conf="low", src="Biger; WP: Argentina-Bolivia border"),
+]
+
+
+def key(a, b):
+    return "-".join(sorted((a, b)))
+
+
+def match(seg):
+    """The table entry for a straight segment, or None."""
+    k = key(seg["a"], seg["b"])
+    cands = [t for t in T if t["k"] == k]
+    for t in cands:
+        s = t.get("sel")
+        if s is None:
+            continue
+        if s[0] == "box":
+            x, y = seg["mid"]
+            if s[1] <= x <= s[2] and s[3] <= y <= s[4]:
+                return t
+        elif seg["kind"] == s[0] and s[1] <= seg["val"] <= s[2]:
+            return t
+    for t in cands:
+        if t.get("sel") is None:
+            return t
+    return None
