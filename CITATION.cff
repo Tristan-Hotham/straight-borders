@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it as below."
+title: "Where the Borders Are Straight: Ruler Lines, Rivers and Mountains on Every International Land Border, and Who Drew the Longest Straight Lines"
+type: dataset
+authors:
+  - family-names: Hotham
+    given-names: Tristan
+    orcid: "https://orcid.org/0000-0003-4931-9349"
+    affiliation: "Independent researcher"
+doi: "10.5281/zenodo.23847974"
+url: "https://maps.tristanhotham.com/straight-borders/"
+repository-code: "https://github.com/Tristan-Hotham/straight-borders"
+license: CC-BY-4.0
+keywords:
+  - "international boundaries"
+  - "borders"
+  - "geometric boundaries"
+  - "straight borders"
+  - "Africa"
+  - "colonialism"
+  - "treaties"
+  - "cartographic generalisation"
+  - "Natural Earth"
+  - "maps"
